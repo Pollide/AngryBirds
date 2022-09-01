@@ -10,8 +10,8 @@ public:
 
 	void Render(sf::RenderWindow& _window, float _scale);
 
-private:
-	// Box 2D Stuff
+	//private:
+		// Box 2D Stuff
 	b2BodyDef bodyDef;
 	b2Body* body;
 	b2PolygonShape shape;

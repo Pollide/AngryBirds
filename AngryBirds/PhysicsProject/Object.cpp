@@ -20,9 +20,18 @@ Object::Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::
 	body->CreateFixture(&fixtureDef);
 }
 
+
+
 void Object::Render(sf::RenderWindow& _window, float _scale)
 {
 	sprite.setPosition(body->GetPosition().x * _scale, body->GetPosition().y * _scale);
+
+	//b2Vec2 vel = body->GetLinearVelocity();
+	//float angle = ccpToAngle(ccp(vel.x, vel.y));
+	//sprite.setRotation(-1 * Rad2Deg(angle));
+
 	sprite.setRotation(body->GetAngle() * 180 / b2_pi);
 	_window.draw(sprite);
+
+
 }

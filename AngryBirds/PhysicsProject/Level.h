@@ -2,6 +2,8 @@
 
 #include "Object.h"
 #include "Catapult.h"
+#include "Joint.h"
+
 class Bird;
 
 class Level
