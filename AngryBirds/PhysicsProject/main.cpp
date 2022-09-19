@@ -1,23 +1,29 @@
 #include "Level.h"
 #include "Joint.h"
-
+#include "InputManager.h"
 #include <iostream>
+
+InputManager inputManager;
 
 int main()
 {
 	const double SCALE = 30.0;
 
 	// Window
-	sf::RenderWindow window(sf::VideoMode(960, 540), "SFML and box2D works!");
+	sf::RenderWindow window(sf::VideoMode(960, 540), "Angry Birds!");
 	window.setFramerateLimit(60);
 
 	Level* level = new Level(SCALE);
 
+	sf::Font font;
+	font.loadFromFile("Resources/Rubik-Black.ttf");
+	inputManager.initialize_buttons(&font);
 
 
 	while (window.isOpen())
 	{
 		window.clear(sf::Color(97, 136, 235));
+
 
 		sf::Event event;
 		while (window.pollEvent(event))
@@ -25,28 +31,42 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 
-			switch (event.type)
+			if (!inputManager.paused)
 			{
-			case sf::Event::MouseButtonPressed:
-			{
-				level->MouseButtonPressed(window);
-				break;
-			}
-			case sf::Event::MouseButtonReleased:
-			{
-				level->MouseButtonReleased();
-				break;
-			}
-			case sf::Event::MouseMoved:
-			{
-				level->MouseMoved(window);
-				break;
-			}
+
+				switch (event.type)
+				{
+				case sf::Event::MouseButtonPressed:
+				{
+					level->MouseButtonPressed(window);
+					break;
+				}
+				case sf::Event::MouseButtonReleased:
+				{
+					level->MouseButtonReleased();
+					break;
+				}
+				case sf::Event::MouseMoved:
+				{
+					level->MouseMoved(window);
+					break;
+				}
+				}
 			}
 		}
 
-		level->Update();
-		level->Render(window, SCALE);
+		if (inputManager.paused)
+		{
+			inputManager.update_buttons(&window);
+			inputManager.render_buttons(&window);
+		}
+		else
+		{
+
+			level->Update();
+			level->Render(window, SCALE);
+		}
+
 		window.display();
 	}
 

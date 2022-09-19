@@ -7,22 +7,22 @@ Bird::Bird()
 	switch (randSprite)
 	{
 	case 0:
-		texture.loadFromFile("Resources/Sprites/Goon1.png");
+		texture.loadFromFile("Resources/Sprites/Goon/Goon1.png");
 		break;
 	case 1:
-		texture.loadFromFile("Resources/Sprites/Goon2.png");
+		texture.loadFromFile("Resources/Sprites/Goon/Goon2.png");
 		break;
 	case 2:
-		texture.loadFromFile("Resources/Sprites/Goon3.png");
+		texture.loadFromFile("Resources/Sprites/Goon/Goon3.png");
 		break;
 	case 3:
-		texture.loadFromFile("Resources/Sprites/Goon4.png");
+		texture.loadFromFile("Resources/Sprites/Goon/Goon4.png");
 		break;
 	case 4:
-		texture.loadFromFile("Resources/Sprites/Goon5.png");
+		texture.loadFromFile("Resources/Sprites/Goon/Goon5.png");
 		break;
 	case 5:
-		texture.loadFromFile("Resources/Sprites/Goon6.png");
+		texture.loadFromFile("Resources/Sprites/Goon/Goon6.png");
 		break;
 	}
 

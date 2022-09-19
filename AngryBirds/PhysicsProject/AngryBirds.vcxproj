@@ -146,7 +146,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Catapult.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Joint.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
@@ -154,7 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bird.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Catapult.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="Joint.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Object.h" />
