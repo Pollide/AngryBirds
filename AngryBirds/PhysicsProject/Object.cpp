@@ -43,7 +43,7 @@ void Object::CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bod
 
 	auto myUserData = std::make_unique<MyFixtureUserDataType>();
 	myUserData->mObjectType = listener.mFixtureUserData->size(); // whatever this fixture is about
-
+	myUserData->object = this;
 
 	_world->SetContactListener(&listener);
 	body = _world->CreateBody(&bodyDef);
@@ -69,11 +69,6 @@ void Object::Render(sf::RenderWindow& _window, float _scale)
 	_window.draw(sprite);
 
 
-}
-
-void Object::Poof()
-{
-	LoadTexture("Poof/Poof1.png");
 }
 
 void Object::LoadTexture(std::string _spriteName)

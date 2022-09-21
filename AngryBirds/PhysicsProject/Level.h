@@ -20,7 +20,7 @@ public:
 
 	std::vector<Bird*> birds;
 	std::vector<Object*> objects;
-	std::vector<std::unique_ptr<MyFixtureUserDataType>> mFixtureUserData;
+	std::vector<std::unique_ptr<Object::MyFixtureUserDataType>> mFixtureUserData;
 
 private:
 	b2World* world;

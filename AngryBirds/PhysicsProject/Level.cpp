@@ -10,12 +10,12 @@ Level::Level(float _scale)
 
 	for (int i = 0; i < 3; ++i)
 	{
-		objects.push_back(new Object(sf::Vector2f(550 + i * 100, 100), _scale, b2BodyType::b2_dynamicBody, "Ball.png", world, &mFixtureUserData));
+		objects.push_back(new Object(sf::Vector2f(550 + i * 100, 400), _scale, b2BodyType::b2_dynamicBody, "Ball.png", world, &mFixtureUserData));
 	}
 
-	objects.push_back(new Object(sf::Vector2f(450, 100), _scale, b2BodyType::b2_dynamicBody, "Wagon.png", world, &mFixtureUserData));
-	objects.push_back(new Object(sf::Vector2f(380, 110), _scale, b2BodyType::b2_dynamicBody, "Wheel.png", world, &mFixtureUserData));
-	objects.push_back(new Object(sf::Vector2f(600, 110), _scale, b2BodyType::b2_dynamicBody, "Wheel.png", world, &mFixtureUserData));
+	objects.push_back(new Object(sf::Vector2f(450, 400), _scale, b2BodyType::b2_dynamicBody, "Wagon.png", world, &mFixtureUserData));
+	objects.push_back(new Object(sf::Vector2f(380, 410), _scale, b2BodyType::b2_dynamicBody, "Wheel.png", world, &mFixtureUserData));
+	objects.push_back(new Object(sf::Vector2f(600, 410), _scale, b2BodyType::b2_dynamicBody, "Wheel.png", world, &mFixtureUserData));
 
 	Joint joint(objects[objects.size() - 3], objects[objects.size() - 2], b2Vec2(-2.0f, 1.0f), world);
 	Joint jointTwo(objects[objects.size() - 3], objects[objects.size() - 1], b2Vec2(2.0f, 1.0f), world);
@@ -27,6 +27,27 @@ void Level::Render(sf::RenderWindow& _window, float _scale)
 {
 	for (int i = 0; i < objects.size(); ++i)
 	{
+		if (objects[i]->PoofIndex > 0)
+		{
+			if (objects[i]->PoofIndex <= 7)
+			{
+				objects[i]->PoofTimer++;
+
+				if (objects[i]->PoofTimer > 3)
+				{
+					std::stringstream ss;
+					ss << "Poof/Poof" << objects[i]->PoofIndex << ".png";
+					objects[i]->PoofTimer = 0;
+					objects[i]->LoadTexture(ss.str());
+					objects[i]->PoofIndex++;
+				}
+			}
+			else
+			{
+				//objects[i]->bodyDef.position = b2Vec2(0, 9999);
+				continue;
+			}
+		}
 		objects[i]->Render(_window, _scale);
 	}
 	for (int i = 0; i < birds.size(); ++i)
