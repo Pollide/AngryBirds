@@ -19,12 +19,13 @@ C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\Angr
               T=float
           ]
   Object.cpp
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(10,64): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(39,61): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(71,64): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(10,39): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(71,39): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int

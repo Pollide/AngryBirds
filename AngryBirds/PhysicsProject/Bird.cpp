@@ -1,6 +1,6 @@
 #include "Bird.h"
 
-Bird::Bird() : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, ReturnTextureName(), NULL)
+Bird::Bird() : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, ReturnTextureName(), NULL, NULL)
 {
 	isBird = true;
 }
