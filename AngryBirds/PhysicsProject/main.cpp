@@ -1,9 +1,9 @@
 #include "Level.h"
 #include "Joint.h"
 #include "InputManager.h"
-#include <iostream>
 
 InputManager inputManager;
+
 
 int main()
 {

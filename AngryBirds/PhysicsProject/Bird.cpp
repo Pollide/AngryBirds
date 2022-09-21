@@ -1,36 +1,18 @@
 #include "Bird.h"
 
-Bird::Bird()
+Bird::Bird() : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, ReturnTextureName(), NULL)
 {
-	int randSprite = rand() % 6;
+	isBird = true;
+}
 
-	switch (randSprite)
-	{
-	case 0:
-		texture.loadFromFile("Resources/Sprites/Goon/Goon1.png");
-		break;
-	case 1:
-		texture.loadFromFile("Resources/Sprites/Goon/Goon2.png");
-		break;
-	case 2:
-		texture.loadFromFile("Resources/Sprites/Goon/Goon3.png");
-		break;
-	case 3:
-		texture.loadFromFile("Resources/Sprites/Goon/Goon4.png");
-		break;
-	case 4:
-		texture.loadFromFile("Resources/Sprites/Goon/Goon5.png");
-		break;
-	case 5:
-		texture.loadFromFile("Resources/Sprites/Goon/Goon6.png");
-		break;
-	}
+sf::String Bird::ReturnTextureName()
+{
+	int randSprite = rand() % 6 + 1;
+	//std::cout << randSprite;
+	std::stringstream ss;
+	ss << "Goons/Goon" << randSprite << ".png";
 
-	// Sprite Setup
-	sprite.setTexture(texture);
-	float originX = (texture.getSize().x / 2);
-	float originY = (texture.getSize().y / 2);
-	sprite.setOrigin(originX, originY);
+	return ss.str();
 }
 
 void Bird::Render(sf::RenderWindow& _window, float _scale)
@@ -42,17 +24,4 @@ void Bird::Render(sf::RenderWindow& _window, float _scale)
 	}
 
 	_window.draw(sprite);
-}
-
-void Bird::Launch(float _scale, sf::Vector2f _position, b2World& _world)
-{
-	// Box2D Setup
-	bodyDef.position = b2Vec2(_position.x / _scale, _position.y / _scale);
-	bodyDef.type = b2_dynamicBody;
-	body = _world.CreateBody(&bodyDef);
-	//float originX = (texture.getSize().x / 2);
-	shape.m_radius = (texture.getSize().x / 2) / _scale;
-	fixtureDef.density = 5.0f;
-	fixtureDef.shape = &shape;
-	body->CreateFixture(&fixtureDef);
 }

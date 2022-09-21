@@ -1,13 +1,34 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (AngryBirds.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Bird.cpp
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Bird.cpp(31,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+  Catapult.cpp
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Catapult.cpp(10,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Bird.cpp(32,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Catapult.cpp(11,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
+  Joint.cpp
+  Level.cpp
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Level.cpp(13,49): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Object.cpp
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(10,64): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(10,39): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  main.cpp
+  Generating Code...
   AngryBirds.vcxproj -> C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\x64\Debug\PhysicsProject.exe
