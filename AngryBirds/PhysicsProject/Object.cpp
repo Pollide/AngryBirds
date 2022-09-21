@@ -2,13 +2,11 @@
 #include <iostream>
 
 
-Object::Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::string _spriteName, b2World* _world, std::vector<std::unique_ptr<MyFixtureUserDataType>>* mFixtureUserData)
+Object::Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::string _spriteName, b2World* _world, std::vector<std::unique_ptr<FixtureUserData>>* mFixtureUserData)
 {
 	// Sprite Setup
 	LoadTexture(_spriteName);
 	listener.mFixtureUserData = mFixtureUserData;
-
-
 
 	if (_world != NULL) //if it isnt NULL, then this is an object, else it would be a bird
 	{
@@ -37,18 +35,13 @@ void Object::CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bod
 	bodyDef.position = b2Vec2(_position.x / _scale, _position.y / _scale);
 	bodyDef.type = _bodyType;
 
-	//bodyDef.userData.pointer = reinterpret_cast<uintptr_t>(&myData);
-	//fixtureDef.userData.pointer = reinterpret_cast<uintptr_t>(myUserData.get());
-	//listener.mFixtureUserData->push_back(myUserData);
-
-	auto myUserData = std::make_unique<MyFixtureUserDataType>();
+	auto myUserData = std::make_unique<FixtureUserData>();
 	myUserData->mObjectType = listener.mFixtureUserData->size(); // whatever this fixture is about
 	myUserData->object = this;
 
 	_world->SetContactListener(&listener);
 	body = _world->CreateBody(&bodyDef);
 	myUserData->mOwningFixture = body->CreateFixture(&fixtureDef);
-	//	myUserData->mOwningFixture = 
 	listener.mFixtureUserData->emplace_back(std::move(myUserData));
 }
 

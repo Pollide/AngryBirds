@@ -29,23 +29,24 @@ void Level::Render(sf::RenderWindow& _window, float _scale)
 	{
 		if (objects[i]->PoofIndex > 0)
 		{
-			if (objects[i]->PoofIndex <= 7)
+			if (objects[i]->PoofIndex <= 7) //7 frames of the poof animation
 			{
 				objects[i]->PoofTimer++;
 
-				if (objects[i]->PoofTimer > 3)
+				if (objects[i]->PoofTimer > 3) //takes 3 calls to get to the next animation frame
 				{
 					std::stringstream ss;
 					ss << "Poof/Poof" << objects[i]->PoofIndex << ".png";
 					objects[i]->PoofTimer = 0;
-					objects[i]->LoadTexture(ss.str());
+					objects[i]->LoadTexture(ss.str()); //changes the animation
 					objects[i]->PoofIndex++;
 				}
 			}
 			else
 			{
 				//objects[i]->bodyDef.position = b2Vec2(0, 9999);
-				continue;
+
+				continue; //stop the object rendering as it has poofed away
 			}
 		}
 		objects[i]->Render(_window, _scale);
