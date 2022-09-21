@@ -17,10 +17,11 @@ public:
 	void MouseButtonPressed(sf::RenderWindow& _window);
 	void MouseButtonReleased();
 	void MouseMoved(sf::RenderWindow& _window);
+
+	std::vector<Bird*> birds;
+	std::vector<Object*> objects;
 private:
 	b2World* world;
 
 	Catapult* catapult;
-	std::vector<Bird*> birds;
-	std::vector<Object*> objects;
 };

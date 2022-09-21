@@ -49,7 +49,7 @@ void Catapult::LaunchBird(float _scale, b2World& _world)
 {
 	if (loadedBird != nullptr)
 	{
-		loadedBird->Launch(_scale, loadedBird->sprite.getPosition(), _world);
+		loadedBird->CreatePhysics(loadedBird->sprite.getPosition(), _scale, b2BodyType::b2_dynamicBody, &_world);
 
 		float launchStrength = 4.0f;
 		b2Vec2 b2launchVector;
