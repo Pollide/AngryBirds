@@ -1,17 +1,8 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (AngryBirds.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Button.cpp
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Button.cpp(19,33): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
   InputManager.cpp
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(7,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(8,10): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(9,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(10,17): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(11,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(12,17): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(13,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(14,17): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(15,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(16,10): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(17,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(25,100): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(34,100): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -20,7 +11,7 @@ C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\Angr
           [
               T=float
           ]
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(25,65): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(34,65): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -29,4 +20,6 @@ C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\Angr
           [
               T=float
           ]
+  main.cpp
+  Generating Code...
   AngryBirds.vcxproj -> C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\x64\Debug\PhysicsProject.exe
