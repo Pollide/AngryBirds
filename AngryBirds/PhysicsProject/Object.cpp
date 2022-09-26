@@ -67,7 +67,7 @@ void Object::Render(sf::RenderWindow& _window, float _scale)
 
 void Object::LoadTexture(std::string _spriteName)
 {
-	texture.loadFromFile("Resources/Sprites/" + _spriteName);
+	texture.loadFromFile("Resources/" + _spriteName);
 	sprite.setTexture(texture);
 	sprite.setOrigin(texture.getSize().x / 2, texture.getSize().y / 2);
 }
