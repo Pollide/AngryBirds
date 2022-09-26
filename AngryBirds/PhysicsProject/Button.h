@@ -22,6 +22,7 @@ public:
 		float _width = 160;
 		float _height = 50;
 		sf::Font* font;
+		float characterSize = 22;
 	};
 	// Constructor which takes every variables to be applied to a created button
 	Button(Transform transform, string _text, sf::Color _idleColor, sf::Color _hoverColor, sf::Color _pressedColor, bool _is_options = false, bool _is_title = false);
