@@ -10,7 +10,7 @@ class Scene
 {
 public:
 	Scene();
-
+	void Initialise();
 	void Render(sf::RenderWindow& _window);
 	void Update();
 	void Create(int scene);
@@ -21,6 +21,7 @@ public:
 	const double scale = 30.0;
 	bool status = 0;
 	int sceneNumber = 0;
+	sf::Color Background;
 	std::vector<Bird*> birds;
 	std::vector<Object*> objects;
 	std::vector<std::unique_ptr<Object::FixtureUserData>> mFixtureUserData;
