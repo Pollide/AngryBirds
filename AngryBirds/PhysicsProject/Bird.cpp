@@ -7,10 +7,10 @@ Bird::Bird() : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, Ret
 
 sf::String Bird::ReturnTextureName()
 {
-	int randSprite = rand() % 6 + 1;
+	int randSprite = rand() % 3 + 1;
 	//std::cout << randSprite;
 	std::stringstream ss;
-	ss << "Goons/Goon" << randSprite << ".png";
+	ss << "Characters/AngryPig" << randSprite << ".png";
 
 	return ss.str();
 }

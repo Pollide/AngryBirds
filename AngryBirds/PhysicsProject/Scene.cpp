@@ -36,6 +36,16 @@ void Scene::Render(sf::RenderWindow& _window)
 					objects[i]->LoadTexture(ss.str()); //changes the animation
 					objects[i]->PoofIndex++;
 
+					for (int j = 0; j < world->GetJointCount(); j++)
+					{
+						//std::cout << "joint";
+						if (world->GetJointList()[j].GetBodyB() == objects[i]->body)
+						{
+							std::cout << "destroy";
+							world->DestroyJoint(&world->GetJointList()[j]);
+						}
+					}
+
 					objects[i]->body->GetFixtureList()->SetSensor(true);
 				}
 			}
@@ -47,7 +57,7 @@ void Scene::Render(sf::RenderWindow& _window)
 			}
 		}
 
-		if (objects[i]->spriteName == "Ball.png")
+		if (objects[i]->spriteName == "Characters/AngryBird.png")
 		{
 			enemies++;
 		}
@@ -85,12 +95,12 @@ void Scene::Create(int scene)
 		{
 			for (int i = 0; i < 3; ++i)
 			{
-				objects.push_back(new Object(sf::Vector2f(550 + i * 100, 400), scale, b2BodyType::b2_dynamicBody, "Ball.png", world, &mFixtureUserData));
+				objects.push_back(new Object(sf::Vector2f(550 + i * 100, 400), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData));
 			}
 
-			objects.push_back(new Object(sf::Vector2f(450, 400), scale, b2BodyType::b2_dynamicBody, "Wagon.png", world, &mFixtureUserData));
-			objects.push_back(new Object(sf::Vector2f(380, 410), scale, b2BodyType::b2_dynamicBody, "Wheel.png", world, &mFixtureUserData));
-			objects.push_back(new Object(sf::Vector2f(600, 410), scale, b2BodyType::b2_dynamicBody, "Wheel.png", world, &mFixtureUserData));
+			objects.push_back(new Object(sf::Vector2f(450, 400), scale, b2BodyType::b2_dynamicBody, "Obstacles/Wagon.png", world, &mFixtureUserData));
+			objects.push_back(new Object(sf::Vector2f(380, 410), scale, b2BodyType::b2_dynamicBody, "Obstacles/Wheel.png", world, &mFixtureUserData));
+			objects.push_back(new Object(sf::Vector2f(600, 410), scale, b2BodyType::b2_dynamicBody, "Obstacles/Wheel.png", world, &mFixtureUserData));
 
 			Joint joint(objects[objects.size() - 3], objects[objects.size() - 2], b2Vec2(-2.0f, 1.0f), world);
 			Joint jointTwo(objects[objects.size() - 3], objects[objects.size() - 1], b2Vec2(2.0f, 1.0f), world);
@@ -102,7 +112,7 @@ void Scene::Create(int scene)
 		{
 			for (int i = 0; i < 5; ++i)
 			{
-				objects.push_back(new Object(sf::Vector2f(350 + i * 80, 400), scale, b2BodyType::b2_dynamicBody, "Ball.png", world, &mFixtureUserData));
+				objects.push_back(new Object(sf::Vector2f(350 + i * 80, 400), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData));
 			}
 
 			/*
@@ -122,7 +132,7 @@ void Scene::Create(int scene)
 		{
 			for (int i = 0; i < 7; ++i)
 			{
-				objects.push_back(new Object(sf::Vector2f(350 + i * 65, 400), scale, b2BodyType::b2_dynamicBody, "Ball.png", world, &mFixtureUserData));
+				objects.push_back(new Object(sf::Vector2f(350 + i * 65, 400), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData));
 			}
 
 			Background = sf::Color(97, 0, 136);

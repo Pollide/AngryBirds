@@ -5,7 +5,7 @@
 Catapult::Catapult(sf::Vector2f _position)
 {
 	// Sprite Setup
-	texture.loadFromFile("Resources/Sprites/Catapult.png");
+	texture.loadFromFile("Resources/Catapult.png");
 	sprite.setTexture(texture);
 	float originX = (texture.getSize().x / 2);
 	float originY = (texture.getSize().y / 2);
