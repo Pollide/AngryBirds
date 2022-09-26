@@ -1,6 +1,6 @@
 #include "Button.h"
 
-Button::Button(float x, float y, float _width, float _height, sf::Font* _font, string _text, sf::Color _idleColor, sf::Color _hoverColor, sf::Color _pressedColor, bool _is_options, bool _is_title)
+Button::Button(Transform transform, string _text, sf::Color _idleColor, sf::Color _hoverColor, sf::Color _pressedColor, bool _is_options, bool _is_title)
 {
 	buttonState = IDLE; // Initial state
 
@@ -8,11 +8,11 @@ Button::Button(float x, float y, float _width, float _height, sf::Font* _font, s
 	is_title = _is_title;
 
 	// Position and size
-	buttonShape.setPosition(sf::Vector2f(x, y));
-	buttonShape.setSize(sf::Vector2f(_width, _height)); // Button is a rectangle of that size
+	buttonShape.setPosition(sf::Vector2f(transform.x, transform.y));
+	buttonShape.setSize(sf::Vector2f(transform._width, transform._height)); // Button is a rectangle of that size
 
 	// Parameters for text within the rectangle
-	buttonFont = _font;
+	buttonFont = transform.font;
 	buttonText.setFont(*buttonFont);
 	set_text(_text);
 	buttonText.setFillColor(is_title ? _idleColor : sf::Color::Black);

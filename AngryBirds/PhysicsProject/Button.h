@@ -11,11 +11,20 @@ enum button_state // Three possible states for buttons; for color change and det
 	PRESSED
 };
 
+
 class Button
 {
 public:
+	struct Transform
+	{
+		float x = 420;
+		float y = 30;
+		float _width = 160;
+		float _height = 50;
+		sf::Font* font;
+	};
 	// Constructor which takes every variables to be applied to a created button
-	Button(float x, float y, float _width, float _height, sf::Font* _font, string _text, sf::Color _idleColor, sf::Color _hoverColor, sf::Color _pressedColor, bool _is_options = false, bool _is_title = false);
+	Button(Transform transform, string _text, sf::Color _idleColor, sf::Color _hoverColor, sf::Color _pressedColor, bool _is_options = false, bool _is_title = false);
 	~Button();
 
 	// Returns true if the button's state is PRESSED

@@ -2,19 +2,28 @@
 
 void InputManager::InitializeButtons(sf::Font* font)
 {
-	int y = 50;
+
+	Button::Transform transform;
+	transform.font = font;
+
 	float add = 80;
-	buttons["Angry Birds"] = new Button(420, y, 160, 50, font, "ANGRY BIRDS", sf::Color::White, sf::Color{ 0, 55, 55, 255 }, sf::Color{ 0, 55, 55, 125 }, false, true);
-	y += add;
-	buttons["Scene One"] = new Button(420, y, 160, 50, font, "LEVEL ONE", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
-	y += add / 1.3f;
-	buttons["Scene Two"] = new Button(420, y, 160, 50, font, "LEVEL TWO", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
-	y += add / 1.3f;
-	buttons["Scene Three"] = new Button(420, y, 160, 50, font, "LEVEL THREE", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
-	y += add * 1.5f;
-	buttons["Options"] = new Button(420, y, 160, 50, font, "OPTIONS", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
-	y += add;
-	buttons["Quit"] = new Button(420, y, 160, 50, font, "QUIT", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
+
+	CreateButton("ANGRY BIRDS", transform, false, true);
+	transform.y += add;
+	CreateButton("SCENE ONE", transform);
+	transform.y += add / 1.3f;
+	CreateButton("SCENE TWO", transform);
+	transform.y += add / 1.3f;
+	CreateButton("SCENE THREE", transform);
+	transform.y += add * 1.5f;
+	CreateButton("OPTIONS", transform);
+	transform.y += add;
+	CreateButton("QUIT", transform);
+}
+
+void InputManager::CreateButton(string _text, Button::Transform transform, bool _is_options, bool _is_title)
+{
+	buttons[_text] = new Button(transform, _text, sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 }, _is_options, _is_title);
 }
 
 
@@ -28,7 +37,7 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window)
 	}
 
 	// Changes AI state and "Current Behaviour" text if one of the buttons is pressed
-	if (buttons["Scene One"]->isPressed())
+	if (buttons["SCENE ONE"]->isPressed())
 	{
 		if (!holding)
 		{
@@ -37,7 +46,7 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window)
 			holding = true;
 		}
 	}
-	if (buttons["Scene Two"]->isPressed())
+	if (buttons["SCENE TWO"]->isPressed())
 	{
 		if (!holding)
 		{
@@ -46,7 +55,7 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window)
 			holding = true;
 		}
 	}
-	if (buttons["Scene Three"]->isPressed())
+	if (buttons["SCENE THREE"]->isPressed())
 	{
 		if (!holding)
 		{
@@ -55,7 +64,7 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window)
 			holding = true;
 		}
 	}
-	else if (buttons["Options"]->isPressed())
+	else if (buttons["OPTIONS"]->isPressed())
 	{
 		if (!holding)
 		{
@@ -63,7 +72,7 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window)
 			holding = true;
 		}
 	}
-	else if (buttons["Quit"]->isPressed())
+	else if (buttons["QUIT"]->isPressed())
 	{
 		if (!holding)
 		{
