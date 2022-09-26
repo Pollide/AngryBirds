@@ -10,7 +10,7 @@ int main()
 
 
 	// Window
-	sf::RenderWindow window(sf::VideoMode(960, 540), "Angry Birds!");
+	sf::RenderWindow window(sf::VideoMode(960, 540), "Angry Pigs!");
 	window.setFramerateLimit(60);
 
 	Scene* scene = new Scene();
@@ -22,7 +22,7 @@ int main()
 
 	while (window.isOpen())
 	{
-		window.clear(sf::Color(97, 136, 235));
+		window.clear(scene->Background);
 
 
 		sf::Event event;
@@ -33,8 +33,10 @@ int main()
 
 			if (scene->sceneNumber > 0)
 			{
-				//if (event.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
-				//	scene->End();
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+				{
+					scene->End();
+				}
 
 				switch (event.type)
 				{

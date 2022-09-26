@@ -3,11 +3,18 @@
 
 Scene::Scene()
 {
+	Initialise();
+}
+
+void Scene::Initialise()
+{
 	b2Vec2 gravity(0.0f, 10.0f);
 	world = new b2World(gravity);
-
+	Background = sf::Color(8, 136, 97);
 	catapult = new Catapult(sf::Vector2f(250, 410));
 }
+
+
 
 void Scene::Render(sf::RenderWindow& _window)
 {
@@ -69,6 +76,7 @@ void Scene::Create(int scene)
 	if (status == 0)
 	{
 		status = 1;
+
 		objects.push_back(new Object(sf::Vector2f(480, 500), scale, b2BodyType::b2_staticBody, "Ground.png", world, &mFixtureUserData));
 
 		if (scene == 1)
@@ -84,6 +92,38 @@ void Scene::Create(int scene)
 
 			Joint joint(objects[objects.size() - 3], objects[objects.size() - 2], b2Vec2(-2.0f, 1.0f), world);
 			Joint jointTwo(objects[objects.size() - 3], objects[objects.size() - 1], b2Vec2(2.0f, 1.0f), world);
+
+			Background = sf::Color(97, 136, 235);
+		}
+
+		if (scene == 2)
+		{
+			for (int i = 0; i < 5; ++i)
+			{
+				objects.push_back(new Object(sf::Vector2f(350 + i * 80, 400), scale, b2BodyType::b2_dynamicBody, "Ball.png", world, &mFixtureUserData));
+			}
+
+			/*
+			objects.push_back(new Object(sf::Vector2f(450, 400), scale, b2BodyType::b2_dynamicBody, "Wagon.png", world, &mFixtureUserData));
+			objects.push_back(new Object(sf::Vector2f(380, 410), scale, b2BodyType::b2_dynamicBody, "Wheel.png", world, &mFixtureUserData));
+			objects.push_back(new Object(sf::Vector2f(600, 410), scale, b2BodyType::b2_dynamicBody, "Wheel.png", world, &mFixtureUserData));
+
+			Joint joint(objects[objects.size() - 3], objects[objects.size() - 2], b2Vec2(-2.0f, 1.0f), world);
+			Joint jointTwo(objects[objects.size() - 3], objects[objects.size() - 1], b2Vec2(2.0f, 1.0f), world);
+			*/
+
+
+			Background = sf::Color(235, 136, 97);
+		}
+
+		if (scene == 3)
+		{
+			for (int i = 0; i < 7; ++i)
+			{
+				objects.push_back(new Object(sf::Vector2f(350 + i * 65, 400), scale, b2BodyType::b2_dynamicBody, "Ball.png", world, &mFixtureUserData));
+			}
+
+			Background = sf::Color(97, 0, 136);
 		}
 	}
 }
@@ -104,12 +144,15 @@ void Scene::MouseButtonReleased()
 
 void Scene::End()
 {
-	//std::cout << "Game Ended";
 	objects.clear();
 	birds.clear();
 	mFixtureUserData.clear();
 	sceneNumber = 0;
 	status = 0;
+
+	delete world;
+	delete catapult;
+	Initialise();
 }
 
 void Scene::MouseMoved(sf::RenderWindow& _window)

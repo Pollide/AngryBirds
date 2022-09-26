@@ -8,7 +8,7 @@ void InputManager::InitializeButtons(sf::Font* font)
 
 	float add = 80;
 
-	CreateButton("ANGRY BIRDS", transform, false, true);
+	CreateButton("ANGRY PIGS", transform, false, true);
 	transform.y += add;
 	CreateButton("SCENE ONE", transform);
 	transform.y += add / 1.3f;
@@ -29,59 +29,51 @@ void InputManager::CreateButton(string _text, Button::Transform transform, bool 
 
 void InputManager::UpdateButtons(const sf::RenderWindow* window, int* scene)
 {
+	int hold = 0;
+
 	for (const auto& it : buttons) // Runs through all button objects
 	{
 		it.second->update(sf::Vector2f(sf::Mouse::getPosition(*window).x, sf::Mouse::getPosition(*window).y)); // Updates button state based on mouse position
-	//else
-	//	it.second->buttonState = IDLE;
+
+		if (it.second->isPressed())
+		{
+			if (!holding)
+			{
+				holding = true;
+
+				if (it.second->ButtonText == "SCENE ONE")
+				{
+					*scene = 1;
+				}
+
+				if (it.second->ButtonText == "SCENE TWO")
+				{
+					*scene = 2;
+				}
+
+				if (it.second->ButtonText == "SCENE THREE")
+				{
+					*scene = 3;
+				}
+
+				if (it.second->ButtonText == "OPTIONS")
+				{
+					*scene = 3;
+				}
+
+				if (it.second->ButtonText == "QUIT")
+				{
+					exit(0);
+				}
+			}
+		}
+		else
+		{
+			hold++;
+		}
 	}
 
-	// Changes AI state and "Current Behaviour" text if one of the buttons is pressed
-	if (buttons["SCENE ONE"]->isPressed())
-	{
-		if (!holding)
-		{
-			//cout << "Play button works";
-			*scene = 1;
-			holding = true;
-		}
-	}
-	if (buttons["SCENE TWO"]->isPressed())
-	{
-		if (!holding)
-		{
-			//cout << "Play button works";
-			*scene = 2;
-			holding = true;
-		}
-	}
-	if (buttons["SCENE THREE"]->isPressed())
-	{
-		if (!holding)
-		{
-			//cout << "Play button works";
-			*scene = 3;
-			holding = true;
-		}
-	}
-	else if (buttons["OPTIONS"]->isPressed())
-	{
-		if (!holding)
-		{
-			//cout << "Option button works";
-			holding = true;
-		}
-	}
-	else if (buttons["QUIT"]->isPressed())
-	{
-		if (!holding)
-		{
-			//cout << "Quit button works";
-			exit(0);
-			holding = true;
-		}
-	}
-	else
+	if (hold == buttons.size())
 	{
 		holding = false;
 	}

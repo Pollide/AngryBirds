@@ -36,6 +36,7 @@ public:
 	void set_text(string _text);
 	bool is_options;
 	bool is_title;
+	string ButtonText;
 	short unsigned buttonState; // Variable to hold enum's current button state
 
 private:

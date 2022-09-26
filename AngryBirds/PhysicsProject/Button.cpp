@@ -6,7 +6,7 @@ Button::Button(Transform transform, string _text, sf::Color _idleColor, sf::Colo
 
 	is_options = _is_options;
 	is_title = _is_title;
-
+	ButtonText = _text;
 	// Position and size
 	buttonShape.setPosition(sf::Vector2f(transform.x, transform.y));
 	buttonShape.setSize(sf::Vector2f(transform._width, transform._height)); // Button is a rectangle of that size
