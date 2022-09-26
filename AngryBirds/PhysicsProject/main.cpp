@@ -31,8 +31,10 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 
-			if (inputManager.scene > 0)
+			if (scene->sceneNumber > 0)
 			{
+				//if (event.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+				//	scene->End();
 
 				switch (event.type)
 				{
@@ -55,14 +57,14 @@ int main()
 			}
 		}
 
-		if (inputManager.scene == 0)
+		if (scene->sceneNumber == 0)
 		{
-			inputManager.UpdateButtons(&window);
+			inputManager.UpdateButtons(&window, &scene->sceneNumber);
 			inputManager.RenderButtons(&window);
 		}
 		else
 		{
-			scene->Create(inputManager.scene);
+			scene->Create(scene->sceneNumber);
 			scene->Update();
 			scene->Render(window);
 		}

@@ -11,6 +11,8 @@ Scene::Scene()
 
 void Scene::Render(sf::RenderWindow& _window)
 {
+	int enemies = 0;
+
 	for (int i = 0; i < objects.size(); ++i)
 	{
 		if (objects[i]->PoofIndex > 0)
@@ -35,6 +37,12 @@ void Scene::Render(sf::RenderWindow& _window)
 				continue; //stop the object rendering as it has poofed away
 			}
 		}
+
+		if (objects[i]->spriteName == "Ball.png")
+		{
+			enemies++;
+		}
+
 		objects[i]->Render(_window, scale);
 	}
 	for (int i = 0; i < birds.size(); ++i)
@@ -43,6 +51,12 @@ void Scene::Render(sf::RenderWindow& _window)
 	}
 
 	catapult->Render(_window);
+
+	if (enemies == 0)
+	{
+		End();
+
+	}
 }
 
 void Scene::Update()
@@ -86,6 +100,16 @@ void Scene::MouseButtonPressed(sf::RenderWindow& _window)
 void Scene::MouseButtonReleased()
 {
 	catapult->LaunchBird(30.0f, *world);
+}
+
+void Scene::End()
+{
+	//std::cout << "Game Ended";
+	objects.clear();
+	birds.clear();
+	mFixtureUserData.clear();
+	sceneNumber = 0;
+	status = 0;
 }
 
 void Scene::MouseMoved(sf::RenderWindow& _window)

@@ -6,6 +6,7 @@ Object::Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::
 {
 	// Sprite Setup
 	LoadTexture(_spriteName);
+	spriteName = _spriteName;
 	listener.mFixtureUserData = mFixtureUserData;
 
 	if (_world != NULL) //if it isnt NULL, then this is an object, else it would be a bird
