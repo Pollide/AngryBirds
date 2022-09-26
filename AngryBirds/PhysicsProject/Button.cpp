@@ -14,11 +14,10 @@ Button::Button(Transform transform, string _text, sf::Color _idleColor, sf::Colo
 	// Parameters for text within the rectangle
 	buttonFont = transform.font;
 	buttonText.setFont(*buttonFont);
-	set_text(_text);
 	buttonText.setFillColor(is_title ? _idleColor : sf::Color::Black);
-	buttonText.setCharacterSize(22 * (is_title ? 2.5f : 1));
+	buttonText.setCharacterSize(transform.characterSize * (is_title ? 2.5f : 1));
+	set_text(_text);
 	// Placing text in the middle of the rectangle
-	buttonText.setPosition(buttonShape.getPosition().x + (buttonShape.getGlobalBounds().width / 2) - buttonText.getGlobalBounds().width / 2, buttonShape.getPosition().y + (buttonShape.getGlobalBounds().height / 2) - buttonText.getGlobalBounds().height / 2 - 5);
 
 	// Passing desired colors for each button state
 	idleColor = _idleColor;
@@ -32,6 +31,8 @@ Button::Button(Transform transform, string _text, sf::Color _idleColor, sf::Colo
 void Button::set_text(string _text)
 {
 	buttonText.setString(_text);
+	buttonText.setPosition(buttonShape.getPosition().x + (buttonShape.getGlobalBounds().width / 2) - buttonText.getGlobalBounds().width / 2, buttonShape.getPosition().y + (buttonShape.getGlobalBounds().height / 2) - buttonText.getGlobalBounds().height / 2 - 5);
+
 }
 
 Button::~Button()

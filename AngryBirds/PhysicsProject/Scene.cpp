@@ -35,6 +35,8 @@ void Scene::Render(sf::RenderWindow& _window)
 					objects[i]->PoofTimer = 0;
 					objects[i]->LoadTexture(ss.str()); //changes the animation
 					objects[i]->PoofIndex++;
+
+					objects[i]->body->GetFixtureList()->SetSensor(true);
 				}
 			}
 			else
