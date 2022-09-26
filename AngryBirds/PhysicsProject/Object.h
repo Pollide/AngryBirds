@@ -72,7 +72,7 @@ public:
 	//listens to the collisions
 	Listener listener;
 
-
+	std::string spriteName;
 	bool isBird; //is the object a bird?
 	int PoofIndex; //gets the animation index
 	int PoofTimer; //gets the time it takes to change animation frame

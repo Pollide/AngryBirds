@@ -16,9 +16,11 @@ public:
 	void Create(int scene);
 	void MouseButtonPressed(sf::RenderWindow& _window);
 	void MouseButtonReleased();
+	void End();
 	void MouseMoved(sf::RenderWindow& _window);
 	const double scale = 30.0;
 	bool status = 0;
+	int sceneNumber = 0;
 	std::vector<Bird*> birds;
 	std::vector<Object*> objects;
 	std::vector<std::unique_ptr<Object::FixtureUserData>> mFixtureUserData;

@@ -27,7 +27,7 @@ void InputManager::CreateButton(string _text, Button::Transform transform, bool 
 }
 
 
-void InputManager::UpdateButtons(const sf::RenderWindow* window)
+void InputManager::UpdateButtons(const sf::RenderWindow* window, int* scene)
 {
 	for (const auto& it : buttons) // Runs through all button objects
 	{
@@ -42,7 +42,7 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window)
 		if (!holding)
 		{
 			//cout << "Play button works";
-			scene = 1;
+			*scene = 1;
 			holding = true;
 		}
 	}
@@ -51,7 +51,7 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window)
 		if (!holding)
 		{
 			//cout << "Play button works";
-			scene = 2;
+			*scene = 2;
 			holding = true;
 		}
 	}
@@ -60,7 +60,7 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window)
 		if (!holding)
 		{
 			//cout << "Play button works";
-			scene = 3;
+			*scene = 3;
 			holding = true;
 		}
 	}
