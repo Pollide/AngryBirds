@@ -1,4 +1,4 @@
-#include "Level.h"
+#include "Scene.h"
 #include "Joint.h"
 #include "InputManager.h"
 
@@ -7,17 +7,17 @@ InputManager inputManager;
 
 int main()
 {
-	const double SCALE = 30.0;
+
 
 	// Window
 	sf::RenderWindow window(sf::VideoMode(960, 540), "Angry Birds!");
 	window.setFramerateLimit(60);
 
-	Level* level = new Level(SCALE);
+	Scene* scene = new Scene();
 
 	sf::Font font;
 	font.loadFromFile("Resources/Rubik-Black.ttf");
-	inputManager.initialize_buttons(&font);
+	inputManager.InitializeButtons(&font);
 
 
 	while (window.isOpen())
@@ -31,40 +31,40 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 
-			if (!inputManager.paused)
+			if (inputManager.scene > 0)
 			{
 
 				switch (event.type)
 				{
 				case sf::Event::MouseButtonPressed:
 				{
-					level->MouseButtonPressed(window);
+					scene->MouseButtonPressed(window);
 					break;
 				}
 				case sf::Event::MouseButtonReleased:
 				{
-					level->MouseButtonReleased();
+					scene->MouseButtonReleased();
 					break;
 				}
 				case sf::Event::MouseMoved:
 				{
-					level->MouseMoved(window);
+					scene->MouseMoved(window);
 					break;
 				}
 				}
 			}
 		}
 
-		if (inputManager.paused)
+		if (inputManager.scene == 0)
 		{
-			inputManager.update_buttons(&window);
-			inputManager.render_buttons(&window);
+			inputManager.UpdateButtons(&window);
+			inputManager.RenderButtons(&window);
 		}
 		else
 		{
-
-			level->Update();
-			level->Render(window, SCALE);
+			scene->Create(inputManager.scene);
+			scene->Update();
+			scene->Render(window);
 		}
 
 		window.display();

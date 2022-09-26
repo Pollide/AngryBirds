@@ -1,14 +1,24 @@
 #include "InputManager.h"
 
-void InputManager::initialize_buttons(sf::Font* font)
+void InputManager::InitializeButtons(sf::Font* font)
 {
-	buttons["Angry Birds"] = new Button(420, 130, 150, 50, font, "ANGRY BIRDS", sf::Color::White, sf::Color{ 0, 55, 55, 255 }, sf::Color{ 0, 55, 55, 125 }, false, true);
-	buttons["Play"] = new Button(420, 230, 150, 50, font, "PLAY", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
-	buttons["Options"] = new Button(420, 330, 150, 50, font, "OPTIONS", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
-	buttons["Quit"] = new Button(420, 430, 150, 50, font, "QUIT", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
+	int y = 50;
+	float add = 80;
+	buttons["Angry Birds"] = new Button(420, y, 160, 50, font, "ANGRY BIRDS", sf::Color::White, sf::Color{ 0, 55, 55, 255 }, sf::Color{ 0, 55, 55, 125 }, false, true);
+	y += add;
+	buttons["Scene One"] = new Button(420, y, 160, 50, font, "LEVEL ONE", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
+	y += add / 1.3f;
+	buttons["Scene Two"] = new Button(420, y, 160, 50, font, "LEVEL TWO", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
+	y += add / 1.3f;
+	buttons["Scene Three"] = new Button(420, y, 160, 50, font, "LEVEL THREE", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
+	y += add * 1.5f;
+	buttons["Options"] = new Button(420, y, 160, 50, font, "OPTIONS", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
+	y += add;
+	buttons["Quit"] = new Button(420, y, 160, 50, font, "QUIT", sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 });
 }
 
-void InputManager::update_buttons(const sf::RenderWindow* window)
+
+void InputManager::UpdateButtons(const sf::RenderWindow* window)
 {
 	for (const auto& it : buttons) // Runs through all button objects
 	{
@@ -18,12 +28,30 @@ void InputManager::update_buttons(const sf::RenderWindow* window)
 	}
 
 	// Changes AI state and "Current Behaviour" text if one of the buttons is pressed
-	if (buttons["Play"]->isPressed())
+	if (buttons["Scene One"]->isPressed())
 	{
 		if (!holding)
 		{
 			//cout << "Play button works";
-			paused = false;
+			scene = 1;
+			holding = true;
+		}
+	}
+	if (buttons["Scene Two"]->isPressed())
+	{
+		if (!holding)
+		{
+			//cout << "Play button works";
+			scene = 2;
+			holding = true;
+		}
+	}
+	if (buttons["Scene Three"]->isPressed())
+	{
+		if (!holding)
+		{
+			//cout << "Play button works";
+			scene = 3;
 			holding = true;
 		}
 	}
@@ -50,7 +78,7 @@ void InputManager::update_buttons(const sf::RenderWindow* window)
 	}
 }
 
-void InputManager::render_buttons(sf::RenderTarget* target)
+void InputManager::RenderButtons(sf::RenderTarget* target)
 {
 	for (auto& it : buttons) // For all buttons in the map
 	{

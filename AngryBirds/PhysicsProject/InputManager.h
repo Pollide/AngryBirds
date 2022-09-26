@@ -5,11 +5,11 @@
 class InputManager
 {
 public:
-	void initialize_buttons(sf::Font* font);
-	void update_buttons(const sf::RenderWindow* window);
-	void render_buttons(sf::RenderTarget* target);
+	void InitializeButtons(sf::Font* font);
+	void UpdateButtons(const sf::RenderWindow* window);
+	void RenderButtons(sf::RenderTarget* target);
 	bool holding;
-	bool paused = true;
+	int scene = 0;
 	map<string, Button*> buttons;
 };
 
