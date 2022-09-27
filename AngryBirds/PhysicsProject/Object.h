@@ -62,7 +62,7 @@ public:
 		}
 	};
 
-	Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::string _spriteName, b2World* _world, std::vector<std::unique_ptr<FixtureUserData>>* mFixtureUserData);
+	Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::string _spriteName, b2World* _world, std::vector<std::unique_ptr<FixtureUserData>>* mFixtureUserData, bool _enemy = false);
 
 
 	void CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bodyType, b2World* _world);
@@ -72,8 +72,8 @@ public:
 	//listens to the collisions
 	Listener listener;
 
-	std::string spriteName;
 	bool isBird; //is the object a bird?
+	bool isEnemy;
 	int PoofIndex; //gets the animation index
 	int PoofTimer; //gets the time it takes to change animation frame
 

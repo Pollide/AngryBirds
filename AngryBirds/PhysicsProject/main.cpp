@@ -47,7 +47,7 @@ int main()
 				}
 				case sf::Event::MouseButtonReleased:
 				{
-					scene->MouseButtonReleased();
+					scene->MouseButtonReleased(window);
 					break;
 				}
 				case sf::Event::MouseMoved:

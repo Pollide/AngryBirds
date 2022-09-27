@@ -1,16 +1,18 @@
 #include "Bird.h"
 
-Bird::Bird() : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, ReturnTextureName(), NULL, NULL)
+Bird::Bird(int _type, bool _waiting) : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, ReturnTextureName(_type), NULL, NULL)
 {
 	isBird = true;
+	type = _type;
+	waiting = _waiting;
 }
 
-sf::String Bird::ReturnTextureName()
+sf::String Bird::ReturnTextureName(int _type)
 {
-	int randSprite = rand() % 3 + 1;
+	//int randSprite = rand() % 3 + 1;
 	//std::cout << randSprite;
 	std::stringstream ss;
-	ss << "Characters/AngryPig" << randSprite << ".png";
+	ss << "Characters/AngryPig" << _type << ".png";
 
 	return ss.str();
 }

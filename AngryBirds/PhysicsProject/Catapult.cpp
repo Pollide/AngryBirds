@@ -47,16 +47,20 @@ void Catapult::MoveBird(sf::RenderWindow& _window)
 
 void Catapult::LaunchBird(float _scale, b2World& _world)
 {
-	if (loadedBird != nullptr)
-	{
-		loadedBird->CreatePhysics(loadedBird->sprite.getPosition(), _scale, b2BodyType::b2_dynamicBody, &_world);
 
-		float launchStrength = 4.0f;
-		b2Vec2 b2launchVector;
-		b2launchVector.x = firingVector.x * -1.0f * launchStrength;
-		b2launchVector.y = firingVector.y * -1.0f * launchStrength;
+	loadedBird->CreatePhysics(loadedBird->sprite.getPosition(), _scale, b2BodyType::b2_dynamicBody, &_world);
 
-		loadedBird->body->ApplyLinearImpulseToCenter(b2launchVector, true);
-		loadedBird = nullptr;
-	}
+	ImpulseBody(loadedBird->body, 4);
+
+	loadedBird = nullptr;
+
+}
+
+void Catapult::ImpulseBody(b2Body* body, float launchStrength)
+{
+	b2Vec2 b2launchVector;
+	b2launchVector.x = firingVector.x * -1.0f * launchStrength;
+	b2launchVector.y = firingVector.y * -1.0f * launchStrength;
+
+	body->ApplyLinearImpulseToCenter(b2launchVector, true);
 }
