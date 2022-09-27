@@ -1,10 +1,10 @@
 #include "Button.h"
 
-Button::Button(Transform transform, string _text, sf::Color _idleColor, sf::Color _hoverColor, sf::Color _pressedColor, bool _is_options, bool _is_title)
+Button::Button(Transform transform, string _text, sf::Color _idleColor, sf::Color _hoverColor, sf::Color _pressedColor, int _status, bool _is_title)
 {
 	buttonState = IDLE; // Initial state
 
-	is_options = _is_options;
+	menu = _status;
 	is_title = _is_title;
 	ButtonText = _text;
 	// Position and size

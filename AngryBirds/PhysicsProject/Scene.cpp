@@ -73,7 +73,8 @@ void Scene::Render(sf::RenderWindow& _window)
 
 	if (enemies == 0)
 	{
-		End();
+		//End();
+		menu = 2;
 
 	}
 }
@@ -83,15 +84,15 @@ void Scene::Update()
 	world->Step(1 / 60.f, 8, 3);
 }
 
-void Scene::Create(int scene)
+void Scene::Create(int sceneRequested)
 {
-	if (status == 0)
+	if (menu == 0)
 	{
-		status = 1;
+		menu = -1;
 
 		objects.push_back(new Object(sf::Vector2f(480, 500), scale, b2BodyType::b2_staticBody, "Ground.png", world, &mFixtureUserData));
 
-		if (scene == 1)
+		if (sceneRequested == 1)
 		{
 			for (int i = 0; i < 3; ++i)
 			{
@@ -113,7 +114,7 @@ void Scene::Create(int scene)
 			Background = sf::Color(97, 136, 235);
 		}
 
-		if (scene == 2)
+		if (sceneRequested == 2)
 		{
 			for (int i = 0; i < 5; ++i)
 			{
@@ -138,7 +139,7 @@ void Scene::Create(int scene)
 			Background = sf::Color(235, 136, 97);
 		}
 
-		if (scene == 3)
+		if (sceneRequested == 3)
 		{
 			for (int i = 0; i < 7; ++i)
 			{
@@ -228,8 +229,7 @@ void Scene::End()
 	objects.clear();
 	birds.clear();
 	mFixtureUserData.clear();
-	sceneNumber = 0;
-	status = 0;
+	menu = 0;
 
 	delete world;
 	delete catapult;

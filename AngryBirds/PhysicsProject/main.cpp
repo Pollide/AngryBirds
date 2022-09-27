@@ -14,7 +14,6 @@ int main()
 	window.setFramerateLimit(60);
 
 	Scene* scene = new Scene();
-
 	sf::Font font;
 	font.loadFromFile("Resources/Rubik-Black.ttf");
 	inputManager.InitializeButtons(&font);
@@ -31,10 +30,11 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 
-			if (scene->sceneNumber > 0)
+			if (scene->scene > 0)
 			{
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				{
+					scene->scene = 0;
 					scene->End();
 				}
 
@@ -59,14 +59,12 @@ int main()
 			}
 		}
 
-		if (scene->sceneNumber == 0)
+		inputManager.UpdateButtons(&window, scene);
+		inputManager.RenderButtons(&window, &scene->menu);
+
+		if (scene->scene > 0)
 		{
-			inputManager.UpdateButtons(&window, &scene->sceneNumber);
-			inputManager.RenderButtons(&window);
-		}
-		else
-		{
-			scene->Create(scene->sceneNumber);
+			scene->Create(scene->scene);
 			scene->Update();
 			scene->Render(window);
 		}
