@@ -1,7 +1,6 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
-#include "Listener.h"
 #include "box2d/box2d.h"
 #include <iostream>
 #include <sstream>
