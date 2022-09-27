@@ -5,7 +5,7 @@
 Catapult::Catapult(sf::Vector2f _position)
 {
 	// Sprite Setup
-	texture.loadFromFile("Resources/Catapult.png");
+	texture.loadFromFile("Resources/Sling.png");
 	sprite.setTexture(texture);
 	float originX = (texture.getSize().x / 2);
 	float originY = (texture.getSize().y / 2);
@@ -36,6 +36,7 @@ void Catapult::MoveBird(sf::RenderWindow& _window)
 		firingVector.y = mousePosition.y - firingOrigin.y;
 
 		float length = sqrt((firingVector.x * firingVector.x) + (firingVector.y * firingVector.y)); // Magnitude
+
 		if (length > 100.0f)
 		{
 			firingVector = (firingVector / length) * 100.0f;

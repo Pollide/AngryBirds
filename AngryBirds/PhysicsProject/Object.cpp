@@ -34,16 +34,18 @@ void Object::CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bod
 
 	bodyDef.position = b2Vec2(_position.x / _scale, _position.y / _scale);
 	bodyDef.type = _bodyType;
+	if (_world != NULL)
+	{
+		auto myUserData = std::make_unique<FixtureUserData>();
+		myUserData->mObjectType = listener.mFixtureUserData->size(); // whatever this fixture is about
+		myUserData->object = this;
 
-	auto myUserData = std::make_unique<FixtureUserData>();
-	myUserData->mObjectType = listener.mFixtureUserData->size(); // whatever this fixture is about
-	myUserData->object = this;
+		_world->SetContactListener(&listener);
+		body = _world->CreateBody(&bodyDef);
+		myUserData->mOwningFixture = body->CreateFixture(&fixtureDef);
 
-	_world->SetContactListener(&listener);
-	body = _world->CreateBody(&bodyDef);
-	myUserData->mOwningFixture = body->CreateFixture(&fixtureDef);
-
-	listener.mFixtureUserData->emplace_back(std::move(myUserData));
+		listener.mFixtureUserData->emplace_back(std::move(myUserData));
+	}
 }
 
 
