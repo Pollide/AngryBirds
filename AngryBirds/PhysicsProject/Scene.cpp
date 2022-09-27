@@ -159,35 +159,38 @@ void Scene::Create(int sceneRequested)
 
 void Scene::MouseButtonPressed(sf::RenderWindow& _window)
 {
-	if (launchedBird != nullptr)
+	if (menu == -1)
 	{
-		if (launchedBird->type == 2)
+		if (launchedBird != nullptr)
 		{
-			sf::Vector2f position = launchedBird->sprite.getPosition();
-			for (int i = 0; i < 2; i++)
+			if (launchedBird->type == 2)
 			{
+				sf::Vector2f position = launchedBird->sprite.getPosition();
+				for (int i = 0; i < 2; i++)
+				{
 
-				Bird* bird = NewBird(new Bird(launchedBird->type), _window);
-				birds.push_back(bird);
+					Bird* bird = NewBird(new Bird(launchedBird->type), _window);
+					birds.push_back(bird);
 
-				position.y -= i * 10;
-				bird->sprite.setPosition(position);
+					position.y -= i * 10;
+					bird->sprite.setPosition(position);
 
-				catapult->LaunchBird(30.0f, *world);
+					catapult->LaunchBird(30.0f, *world);
+				}
+				launchedBird = nullptr;
+				return;
 			}
-			launchedBird = nullptr;
-			return;
+
+			if (launchedBird->type == 3)
+			{
+				catapult->ImpulseBody(launchedBird->body, 8);
+				launchedBird = nullptr;
+				return;
+			}
 		}
 
-		if (launchedBird->type == 3)
-		{
-			catapult->ImpulseBody(launchedBird->body, 8);
-			launchedBird = nullptr;
-			return;
-		}
+		GetQueue(_window);
 	}
-
-	GetQueue(_window);
 
 }
 
