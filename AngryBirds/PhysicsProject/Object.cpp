@@ -2,13 +2,12 @@
 #include <iostream>
 
 
-Object::Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::string _spriteName, b2World* _world, std::vector<std::unique_ptr<FixtureUserData>>* mFixtureUserData)
+Object::Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::string _spriteName, b2World* _world, std::vector<std::unique_ptr<FixtureUserData>>* mFixtureUserData, bool _enemy)
 {
 	// Sprite Setup
 	LoadTexture(_spriteName);
-	spriteName = _spriteName;
 	listener.mFixtureUserData = mFixtureUserData;
-
+	isEnemy = _enemy;
 	if (_world != NULL) //if it isnt NULL, then this is an object, else it would be a bird
 	{
 		CreatePhysics(_position, _scale, _bodyType, _world);
@@ -43,6 +42,7 @@ void Object::CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bod
 	_world->SetContactListener(&listener);
 	body = _world->CreateBody(&bodyDef);
 	myUserData->mOwningFixture = body->CreateFixture(&fixtureDef);
+
 	listener.mFixtureUserData->emplace_back(std::move(myUserData));
 }
 

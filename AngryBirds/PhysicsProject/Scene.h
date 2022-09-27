@@ -15,8 +15,11 @@ public:
 	void Update();
 	void Create(int scene);
 	void MouseButtonPressed(sf::RenderWindow& _window);
-	void MouseButtonReleased();
+	void MouseButtonReleased(sf::RenderWindow& _window);
+	void GetQueue(sf::RenderWindow& _window);
 	void End();
+	Bird* NewBird(Bird* bird, sf::RenderWindow& _window);
+	void AddQueue(int type);
 	void MouseMoved(sf::RenderWindow& _window);
 	const double scale = 30.0;
 	bool status = 0;
@@ -28,6 +31,6 @@ public:
 
 private:
 	b2World* world;
-
+	Bird* launchedBird;
 	Catapult* catapult;
 };

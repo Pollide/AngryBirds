@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "Bird.h"
 
+
 Scene::Scene()
 {
 	Initialise();
@@ -36,12 +37,11 @@ void Scene::Render(sf::RenderWindow& _window)
 					objects[i]->LoadTexture(ss.str()); //changes the animation
 					objects[i]->PoofIndex++;
 
-					for (int j = 0; j < world->GetJointCount(); j++)
+					for (int j = 0; j < world->GetJointCount(); j++) //removes wheels and other connected parts
 					{
 						//std::cout << "joint";
 						if (world->GetJointList()[j].GetBodyB() == objects[i]->body)
 						{
-							std::cout << "destroy";
 							world->DestroyJoint(&world->GetJointList()[j]);
 						}
 					}
@@ -57,7 +57,7 @@ void Scene::Render(sf::RenderWindow& _window)
 			}
 		}
 
-		if (objects[i]->spriteName == "Characters/AngryBird.png")
+		if (objects[i]->isEnemy)
 		{
 			enemies++;
 		}
@@ -95,7 +95,7 @@ void Scene::Create(int scene)
 		{
 			for (int i = 0; i < 3; ++i)
 			{
-				objects.push_back(new Object(sf::Vector2f(550 + i * 100, 400), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData));
+				objects.push_back(new Object(sf::Vector2f(550 + i * 100, 400), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, true));
 			}
 
 			objects.push_back(new Object(sf::Vector2f(450, 400), scale, b2BodyType::b2_dynamicBody, "Obstacles/Wagon.png", world, &mFixtureUserData));
@@ -105,6 +105,11 @@ void Scene::Create(int scene)
 			Joint joint(objects[objects.size() - 3], objects[objects.size() - 2], b2Vec2(-2.0f, 1.0f), world);
 			Joint jointTwo(objects[objects.size() - 3], objects[objects.size() - 1], b2Vec2(2.0f, 1.0f), world);
 
+
+			AddQueue(1);
+			AddQueue(1);
+			AddQueue(2);
+
 			Background = sf::Color(97, 136, 235);
 		}
 
@@ -112,7 +117,7 @@ void Scene::Create(int scene)
 		{
 			for (int i = 0; i < 5; ++i)
 			{
-				objects.push_back(new Object(sf::Vector2f(350 + i * 80, 400), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData));
+				objects.push_back(new Object(sf::Vector2f(350 + i * 80, 400), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, true));
 			}
 
 			/*
@@ -125,6 +130,11 @@ void Scene::Create(int scene)
 			*/
 
 
+			AddQueue(1);
+			AddQueue(2);
+			AddQueue(3);
+			AddQueue(3);
+
 			Background = sf::Color(235, 136, 97);
 		}
 
@@ -132,8 +142,14 @@ void Scene::Create(int scene)
 		{
 			for (int i = 0; i < 7; ++i)
 			{
-				objects.push_back(new Object(sf::Vector2f(350 + i * 65, 400), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData));
+				objects.push_back(new Object(sf::Vector2f(350 + i * 65, 400), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, true));
 			}
+
+			AddQueue(3);
+			AddQueue(2);
+			AddQueue(2);
+			AddQueue(1);
+			AddQueue(3);
 
 			Background = sf::Color(97, 0, 136);
 		}
@@ -142,16 +158,69 @@ void Scene::Create(int scene)
 
 void Scene::MouseButtonPressed(sf::RenderWindow& _window)
 {
+	if (launchedBird != nullptr)
+	{
+		if (launchedBird->type == 2)
+		{
+			sf::Vector2f position = launchedBird->sprite.getPosition();
+			for (int i = 0; i < 2; i++)
+			{
 
-	birds.push_back(new Bird());
-	birds[birds.size() - 1]->listener.mFixtureUserData = &mFixtureUserData;
-	catapult->LoadBird(birds[birds.size() - 1]);
-	catapult->MoveBird(_window);
+				Bird* bird = NewBird(new Bird(launchedBird->type), _window);
+				birds.push_back(bird);
+
+				position.y -= i * 10;
+				bird->sprite.setPosition(position);
+
+				catapult->LaunchBird(30.0f, *world);
+			}
+			launchedBird = nullptr;
+			return;
+		}
+
+		if (launchedBird->type == 3)
+		{
+			catapult->ImpulseBody(launchedBird->body, 8);
+			launchedBird = nullptr;
+			return;
+		}
+	}
+
+	GetQueue(_window);
+
 }
 
-void Scene::MouseButtonReleased()
+void Scene::MouseButtonReleased(sf::RenderWindow& _window)
 {
-	catapult->LaunchBird(30.0f, *world);
+	if (catapult->loadedBird != nullptr)
+	{
+		launchedBird = catapult->loadedBird;
+
+		catapult->LaunchBird(30.0f, *world);
+	}
+}
+
+void Scene::GetQueue(sf::RenderWindow& _window)
+{
+	//birds.push_back(new Bird(1));
+	for (int i = 0; i < birds.size(); i++)
+	{
+		if (birds[i]->waiting)
+		{
+			birds[i]->waiting = false;
+			NewBird(birds[i], _window);
+			break;
+		}
+	}
+}
+
+Bird* Scene::NewBird(Bird* bird, sf::RenderWindow& _window)
+{
+	bird->listener.mFixtureUserData = &mFixtureUserData;
+	catapult->LoadBird(bird);
+	catapult->MoveBird(_window);
+
+	return bird;
 }
 
 void Scene::End()
@@ -165,6 +234,12 @@ void Scene::End()
 	delete world;
 	delete catapult;
 	Initialise();
+}
+
+void Scene::AddQueue(int type)
+{
+	birds.push_back(new Bird(type, true));
+	birds[birds.size() - 1]->sprite.setPosition(sf::Vector2f(200 - birds.size() * 35, 450));
 }
 
 void Scene::MouseMoved(sf::RenderWindow& _window)
