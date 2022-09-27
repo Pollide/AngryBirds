@@ -25,7 +25,7 @@ public:
 		float characterSize = 22;
 	};
 	// Constructor which takes every variables to be applied to a created button
-	Button(Transform transform, string _text, sf::Color _idleColor, sf::Color _hoverColor, sf::Color _pressedColor, bool _is_options = false, bool _is_title = false);
+	Button(Transform transform, string _text, sf::Color _idleColor, sf::Color _hoverColor, sf::Color _pressedColor, int _status = 0, bool _is_title = false);
 	~Button();
 
 	// Returns true if the button's state is PRESSED
@@ -35,7 +35,7 @@ public:
 	// Draws button and its text at target window
 	void render(sf::RenderTarget* target);
 	void set_text(string _text);
-	bool is_options;
+	int menu;
 	bool is_title;
 	string ButtonText;
 	short unsigned buttonState; // Variable to hold enum's current button state

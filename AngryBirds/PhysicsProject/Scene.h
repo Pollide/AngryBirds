@@ -13,7 +13,7 @@ public:
 	void Initialise();
 	void Render(sf::RenderWindow& _window);
 	void Update();
-	void Create(int scene);
+	void Create(int sceneRequested);
 	void MouseButtonPressed(sf::RenderWindow& _window);
 	void MouseButtonReleased(sf::RenderWindow& _window);
 	void GetQueue(sf::RenderWindow& _window);
@@ -22,8 +22,14 @@ public:
 	void AddQueue(int type);
 	void MouseMoved(sf::RenderWindow& _window);
 	const double scale = 30.0;
-	bool status = 0;
-	int sceneNumber = 0;
+	int menu = 0;
+	//menu types
+	//-1 - no menu
+	//0 - main menu
+	//1 - options menu
+	//2 - game over menu
+
+	int scene = 0;
 	sf::Color Background;
 	std::vector<Bird*> birds;
 	std::vector<Object*> objects;

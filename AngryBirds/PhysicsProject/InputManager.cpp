@@ -8,13 +8,24 @@ void InputManager::InitializeButtons(sf::Font* font)
 
 	float add = 80;
 
-	CreateButton("ANGRY PIGS", transform, false, true);
-	CreateButton("OPTIONS MENU", transform, true, true);
+	CreateButton("ANGRY PIGS", transform, 0, true);
+	CreateButton("OPTIONS MENU", transform, 1, true);
+	CreateButton("GAME OVER", transform, 2, true);
+
 	transform.y += add;
+
+	Button::Transform newTransform = transform;
+	newTransform.x -= 85;
+	CreateButton("REPLAY", newTransform, 2);
+
 	CreateButton("SCENE ONE", transform);
-	CreateButton("MUSIC", transform, true);
+	CreateButton("MUSIC", transform, 1);
 	transform.y += add / 1.3f;
-	CreateButton("SOUND", transform, true);
+
+	newTransform.x += 85 * 2;
+	CreateButton("NEXT", newTransform, 2);
+
+	CreateButton("SOUND", transform, 1);
 	CreateButton("SCENE TWO", transform);
 	transform.y += add / 1.3f;
 
@@ -35,9 +46,9 @@ void InputManager::InitializeButtons(sf::Font* font)
 	CreateButton("QUIT", transform);
 }
 
-void InputManager::CreateButton(string _text, Button::Transform transform, bool _is_options, bool _is_title)
+void InputManager::CreateButton(string _text, Button::Transform transform, int _status, bool _is_title)
 {
-	buttons[_text] = new Button(transform, _text, sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 }, _is_options, _is_title);
+	buttons[_text] = new Button(transform, _text, sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 }, _status, _is_title);
 }
 
 std::string InputManager::CreateString(string attach, int value)
@@ -48,13 +59,13 @@ std::string InputManager::CreateString(string attach, int value)
 	return ss.str();
 }
 
-void InputManager::UpdateButtons(const sf::RenderWindow* window, int* scene)
+void InputManager::UpdateButtons(const sf::RenderWindow* window, Scene* scene)
 {
 	int unpressed = 0;
 
 	for (const auto& it : buttons) // Runs through all button objects
 	{
-		if (it.second->is_options == options)
+		if (it.second->menu == scene->menu)
 		{
 			it.second->update(sf::Vector2f(sf::Mouse::getPosition(*window).x, sf::Mouse::getPosition(*window).y)); // Updates button state based on mouse position
 
@@ -66,22 +77,35 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, int* scene)
 
 					if (it.second->ButtonText == "SCENE ONE")
 					{
-						*scene = 1;
+						scene->scene = 1;
 					}
 
 					if (it.second->ButtonText == "SCENE TWO")
 					{
-						*scene = 2;
+						scene->scene = 2;
 					}
 
 					if (it.second->ButtonText == "SCENE THREE")
 					{
-						*scene = 3;
+						scene->scene = 3;
 					}
 
 					if (it.second->ButtonText == "OPTIONS")
 					{
-						options = true;
+						scene->menu = 1;
+					}
+
+					if (it.second->ButtonText == "REPLAY")
+					{
+						scene->End();
+					}
+
+					if (it.second->ButtonText == "NEXT")
+					{
+						scene->End();
+						scene->scene += 1;
+
+
 					}
 
 					if (it.second->ButtonText == "SOUND")
@@ -110,7 +134,7 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, int* scene)
 
 					if (it.second->ButtonText == "BACK")
 					{
-						options = false;
+						scene->menu = 0;
 					}
 
 					if (it.second->ButtonText == "QUIT")
@@ -142,11 +166,15 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, int* scene)
 	}
 }
 
-void InputManager::RenderButtons(sf::RenderTarget* target)
+void InputManager::RenderButtons(sf::RenderTarget* target, int* menu)
 {
+	//std::cout << *menu << "|";
+
 	for (auto& it : buttons) // For all buttons in the map
 	{
-		if (it.second->is_options == options)
+		//std::cout << &it.second->menu << "==" << menu << "|";
+
+		if (it.second->menu == *menu)
 			it.second->render(target);
 	}
 }
