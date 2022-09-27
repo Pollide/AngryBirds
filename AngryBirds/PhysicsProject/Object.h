@@ -63,8 +63,6 @@ public:
 	};
 
 	Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::string _spriteName, b2World* _world, std::vector<std::unique_ptr<FixtureUserData>>* mFixtureUserData, bool _enemy = false);
-
-
 	void CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bodyType, b2World* _world);
 	void Render(sf::RenderWindow& _window, float _scale);
 	void LoadTexture(std::string _spriteName);

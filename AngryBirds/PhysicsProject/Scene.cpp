@@ -166,10 +166,20 @@ void Scene::MouseButtonPressed(sf::RenderWindow& _window)
 			if (launchedBird->type == 2)
 			{
 				sf::Vector2f position = launchedBird->sprite.getPosition();
+
+				launchedBird->sprite.setScale(.5f, .5f);
+				//launchedBird->CreatePhysics(position, 15, b2BodyType::b2_dynamicBody, NULL);
+				//launchedBird->sprite.setScale(launchedBird->sprite.getScale().x * 0.5f, launchedBird->sprite.getScale().x * 0.5f);
+			//	launchedBird->shape.SetAsBox(launchedBird->sprite.getOrigin().x * .1f, launchedBird->sprite.getOrigin().y * .1f);
+				//launchedBird->
+				//launchedBird->bodyDef.position = b2Vec2(launchedBird->bodyDef.position.x / launchedBird->sprite.getScale().x, launchedBird->bodyDef.position.y / launchedBird->sprite.getScale().x);
+
 				for (int i = 0; i < 2; i++)
 				{
 
 					Bird* bird = NewBird(new Bird(launchedBird->type), _window);
+					//bird->SetScale(bird->sprite.getScale().x * 0.5f);
+					bird->sprite.setScale(.5f, .5f);
 					birds.push_back(bird);
 
 					position.y -= i * 10;
