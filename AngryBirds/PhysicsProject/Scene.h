@@ -18,6 +18,7 @@ public:
 	void MouseButtonReleased(sf::RenderWindow& _window);
 	void GetQueue(sf::RenderWindow& _window);
 	void End();
+	bool InView(sf::RenderWindow& _window, sf::Sprite sprite);
 	Bird* NewBird(Bird* bird, sf::RenderWindow& _window);
 	void AddQueue(int type);
 	void MouseMoved(sf::RenderWindow& _window);
