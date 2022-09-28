@@ -61,10 +61,13 @@ public:
 
 											//std::cout << speed << ">" << otherObject->SpeedToDestroy << "|";
 
-											if (otherObject->CharacterType < 0 || otherObject->CharacterType == 0 && ReturnSpeed(thisObject->body) >= otherObject->SpeedToDestroy)
+											if (otherObject->CharacterType == 0 ? ReturnSpeed(thisObject->body) >= otherObject->SpeedToDestroy : true)
 											{
 
 												otherObject->PoofIndex = 1;
+
+												if (otherObject->CharacterType > 0)  //if both birds collide with eachother, they both die
+													thisObject->PoofIndex = 1;
 											}
 										}
 									}
