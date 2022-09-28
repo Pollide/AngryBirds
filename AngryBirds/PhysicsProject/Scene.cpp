@@ -65,7 +65,7 @@ void Scene::Render(sf::RenderWindow& _window)
 		{
 
 			//std::cout << objects[i]->CharacterType << " | ";
-			if (objects[i]->CharacterType > 0 && objects[i]->ReturnSpeed(objects[i]->body) < 0.2f || !InView(_window, objects[i]->sprite))
+			if (objects[i]->CharacterType > 0 && objects[i]->ReturnSpeed(objects[i]->body) < 0.2f && objects[i]->contacted || !InView(_window, objects[i]->sprite))
 			{
 				objects[i]->PoofIndex = 1;
 			}
@@ -236,7 +236,7 @@ void Scene::MouseButtonPressed(sf::RenderWindow& _window)
 					position.y -= i * 10;
 					bird->sprite.setPosition(position);
 
-					catapult->LaunchBird(scale, *world);
+					catapult->LaunchBird(scale, *world, true);
 				}
 				launchedBird = nullptr;
 				return;
@@ -261,7 +261,7 @@ void Scene::MouseButtonReleased(sf::RenderWindow& _window)
 	{
 		launchedBird = catapult->loadedBird;
 		objects.push_back(launchedBird);
-		catapult->LaunchBird(scale, *world);
+		catapult->LaunchBird(scale, *world, false);
 	}
 }
 

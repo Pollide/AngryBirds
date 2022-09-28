@@ -362,3 +362,10 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 *.vcxproj
+*.tlog
+*.tlog
+*.tlog
+*.obj
+*.log
+AngryBirds/.vs/AngryBirds/v16/.suo
+*.exe

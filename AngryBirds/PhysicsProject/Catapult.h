@@ -15,15 +15,14 @@ public:
 
 	void LoadBird(Bird* _bird);
 	void MoveBird(sf::RenderWindow& _window);
-	void LaunchBird(float _scale, b2World& _world);
+	void LaunchBird(float _scale, b2World& _world, bool ability);
 	void ImpulseBody(b2Body* body, float launchStrength);
 	Bird* loadedBird;
-
+	sf::Vector2f firingVector;
 private:
 
 	// Firing variables
 	sf::Vector2f firingOrigin;
-	sf::Vector2f firingVector;
 
 	// SFML stuff
 	sf::Sprite sprite;

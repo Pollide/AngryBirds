@@ -1,49 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (AngryBirds.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Bird.cpp
-  Catapult.cpp
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Catapult.cpp(10,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Catapult.cpp(11,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-  InputManager.cpp
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(88,101): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(88,66): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-  Joint.cpp
-  Object.cpp
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(36,39): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(44,62): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(78,64): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(78,39): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
   Scene.cpp
 C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(21,80): warning C4244: 'argument': conversion from 'const T' to 'T', possible loss of data
           with
@@ -112,4 +67,5 @@ C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\Angr
           ]
   main.cpp
   Generating Code...
+box2d-d.lib(b2_distance_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_distance_joint.obj)' or at 'C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
   AngryBirds.vcxproj -> C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\x64\Debug\PhysicsProject.exe

@@ -27,12 +27,12 @@ void Object::CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bod
 	if (CharacterType > 0)
 	{
 		//circleShape.m_radius = (texture.getSize().x / 2) / _scale;
+		fixtureDef.restitution = 0.1f; // Bounce
 		fixtureDef.density = 5.0f;
 	}
 	else
 	{
 		fixtureDef.restitution = 0.8f; // Bounce
-
 		fixtureDef.density = SpeedToDestroy + 1;
 	}
 
