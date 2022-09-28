@@ -1,32 +1,97 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (AngryBirds.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Bird.cpp
+  Catapult.cpp
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Catapult.cpp(10,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Catapult.cpp(11,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  InputManager.cpp
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(73,101): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(73,66): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+  Joint.cpp
+  Object.cpp
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(36,39): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(44,62): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(78,64): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(78,39): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
   Scene.cpp
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(65,31): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(69,29): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(93,56): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(99,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(75,31): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(80,29): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(118,56): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(122,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(123,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(124,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(126,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(128,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(129,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(130,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(131,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(132,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(134,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(135,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(146,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(147,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(148,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(150,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(152,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(153,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(154,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(155,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(156,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(158,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(159,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(161,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(163,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(164,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(165,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(181,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(182,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(183,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(185,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(187,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(188,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(189,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(190,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(191,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(193,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(194,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(235,27): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(260,24): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(303,63): warning C4244: 'argument': conversion from 'unsigned __int64' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(99,68): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(102,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(103,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(104,57): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(121,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(121,67): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(146,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(146,67): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(255,63): warning C4244: 'argument': conversion from 'unsigned __int64' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
+  main.cpp
+  Generating Code...
   AngryBirds.vcxproj -> C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\x64\Debug\PhysicsProject.exe

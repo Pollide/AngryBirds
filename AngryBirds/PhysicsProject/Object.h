@@ -1,11 +1,10 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
-#include "Listener.h"
 #include "box2d/box2d.h"
 #include <iostream>
 #include <sstream>
-
+#include <cmath>
 
 
 class Object
@@ -33,20 +32,51 @@ public:
 			{
 				for (int i = 0; i < mFixtureUserData->size(); ++i)
 				{
-					//check if first fixture is the bird
-					if (mFixtureUserData->at(i)->mOwningFixture == contact->GetFixtureA() && !mFixtureUserData->at(i)->object->isBird)
+					Object* otherObject = mFixtureUserData->at(i)->object;
+
+
+					if (mFixtureUserData->at(i)->mOwningFixture == contact->GetFixtureA())
 					{
 						for (int j = 0; j < mFixtureUserData->size(); ++j)
 						{
 							//check if second fixture is an object
-							if (mFixtureUserData->at(j)->mOwningFixture == contact->GetFixtureB() && mFixtureUserData->at(j)->object->isBird)
+
+							Object* thisObject = mFixtureUserData->at(j)->object;
+
+
+							if (mFixtureUserData->at(j)->mOwningFixture == contact->GetFixtureB())
 							{
 								//check if that object is not the ground and is alive (as poof is zero)
-								if (mFixtureUserData->at(i)->object->bodyDef.type == b2BodyType::b2_dynamicBody && mFixtureUserData->at(i)->object->PoofIndex == 0)
+								if (thisObject->PoofIndex == 0 && otherObject->PoofIndex == 0)
 								{
-									//std::cout << "collide";
-									mFixtureUserData->at(i)->object->PoofIndex = 1;
-									break;
+									if (otherObject->bodyDef.type == b2BodyType::b2_dynamicBody)
+									{
+										if (thisObject->CharacterType > 0)
+										{
+											//std::cout << "collide";
+											b2Vec2 velocity = thisObject->body->GetLinearVelocity();
+
+											float speed = std::sqrt(velocity.x * velocity.x + velocity.y * velocity.y);
+
+
+											//std::cout << speed << ">" << otherObject->SpeedToDestroy << "|";
+
+											if (otherObject->CharacterType < 0 || otherObject->CharacterType == 0 && ReturnSpeed(thisObject->body) >= otherObject->SpeedToDestroy)
+											{
+
+												otherObject->PoofIndex = 1;
+											}
+										}
+									}
+									else
+									{
+
+
+										if (thisObject->CharacterType < 0)
+										{
+											thisObject->PoofIndex = 1;
+										}
+									}
 								}
 							}
 						}
@@ -62,16 +92,26 @@ public:
 		}
 	};
 
-	Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::string _spriteName, b2World* _world, std::vector<std::unique_ptr<FixtureUserData>>* mFixtureUserData, bool _enemy = false);
+	Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::string _spriteName, b2World* _world, std::vector<std::unique_ptr<FixtureUserData>>* mFixtureUserData, int characterType, int speedToDestroy = 0);
 	void CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bodyType, b2World* _world);
 	void Render(sf::RenderWindow& _window, float _scale);
 	void LoadTexture(std::string _spriteName);
 
+	static float ReturnSpeed(b2Body* body);
+
 	//listens to the collisions
 	Listener listener;
 
-	bool isBird; //is the object a bird?
-	bool isEnemy;
+	int CharacterType;
+	int SpeedToDestroy;
+
+	//-1 - Normal enemy
+	//0  - obstacle
+	//3 - speed ability
+	//2 - split ability
+	//1 - Normal ability
+
+	int hitpoints = 1;
 	int PoofIndex; //gets the animation index
 	int PoofTimer; //gets the time it takes to change animation frame
 

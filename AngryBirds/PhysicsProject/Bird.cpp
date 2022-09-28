@@ -1,9 +1,7 @@
 #include "Bird.h"
 
-Bird::Bird(int _type, bool _waiting) : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, ReturnTextureName(_type), NULL, NULL)
+Bird::Bird(int _type, bool _waiting) : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, ReturnTextureName(_type), NULL, NULL, _type)
 {
-	isBird = true;
-	type = _type;
 	waiting = _waiting;
 }
 
