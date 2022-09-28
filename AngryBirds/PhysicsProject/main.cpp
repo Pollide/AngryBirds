@@ -4,25 +4,30 @@
 
 InputManager inputManager;
 
-
 int main()
 {
-
-
-	// Window
+	// Window parameters
 	sf::RenderWindow window(sf::VideoMode(960, 540), "Angry Pigs!");
 	window.setFramerateLimit(60);
 
+	// Game music parameters
+	// sf::Music music;
+	// music.openFromFile("Resources/Sounds/AngryPigsMusic.wav");
+	// music.setVolume(50.0f);
+	// music.play();
+	// music.setLoop(true);
+
+	// UI parameters
 	Scene* scene = new Scene();
 	sf::Font font;
 	font.loadFromFile("Resources/Rubik-Black.ttf");
 	inputManager.InitializeButtons(&font);
+	inputManager.InitializeMusic();
 
-
+	// Main loop
 	while (window.isOpen())
 	{
 		window.clear(scene->Background);
-
 
 		sf::Event event;
 		while (window.pollEvent(event))
@@ -40,21 +45,21 @@ int main()
 
 				switch (event.type)
 				{
-				case sf::Event::MouseButtonPressed:
-				{
-					scene->MouseButtonPressed(window);
-					break;
-				}
-				case sf::Event::MouseButtonReleased:
-				{
-					scene->MouseButtonReleased(window);
-					break;
-				}
-				case sf::Event::MouseMoved:
-				{
-					scene->MouseMoved(window);
-					break;
-				}
+					case sf::Event::MouseButtonPressed:
+					{
+						scene->MouseButtonPressed(window);
+						break;
+					}
+					case sf::Event::MouseButtonReleased:
+					{
+						scene->MouseButtonReleased(window);
+						break;
+					}
+					case sf::Event::MouseMoved:
+					{
+						scene->MouseMoved(window);
+						break;
+					}
 				}
 			}
 		}

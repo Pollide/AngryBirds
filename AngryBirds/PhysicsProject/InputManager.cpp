@@ -49,6 +49,19 @@ void InputManager::InitializeButtons(sf::Font* font)
 	CreateButton("QUIT", transform);
 }
 
+void InputManager::InitializeMusic()
+{
+	music.openFromFile("Resources/Sounds/AngryPigsMusic.wav");
+	music.setVolume(50.0f);
+	music.play();
+	music.setLoop(true);
+
+	//sound.openFromFile("Resources/Sounds/AngryPigsMusic.wav");
+	//sound.setVolume(50.0f);
+	//sound.play();
+	//sound.setLoop(true);
+}
+
 void InputManager::CreateButton(string _text, Button::Transform transform, int _status, bool _is_title)
 {
 	buttons[_text] = new Button(transform, _text, sf::Color::White, sf::Color{ 55, 55, 55, 255 }, sf::Color{ 55, 55, 55, 125 }, _status, _is_title);
@@ -115,6 +128,12 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, Scene* scene)
 
 						if (SoundVolume > MaxVolume)
 							SoundVolume = 0;
+
+						//sound.setVolume(sound.getVolume() + 10.0f);
+						//if (sound.getVolume() >= 100.0f)
+						//{
+						//	sound.setVolume(0.0f);
+						//}
 					}
 
 					if (it.second->ButtonText == "MUSIC")
@@ -123,14 +142,12 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, Scene* scene)
 
 						if (MusicVolume > MaxVolume)
 							MusicVolume = 0;
-					}
 
-					if (it.second->ButtonText == "SOUND")
-					{
-						SoundVolume++;
-
-						if (SoundVolume > MaxVolume)
-							SoundVolume = 0;
+						music.setVolume(music.getVolume() + 10.0f);
+						if (music.getVolume() >= 100.0f)
+						{
+							music.setVolume(0.0f);
+						}
 					}
 
 					if (it.second->ButtonText == "BACK")
@@ -179,4 +196,3 @@ void InputManager::RenderButtons(sf::RenderTarget* target, int* menu)
 			it.second->render(target);
 	}
 }
-
