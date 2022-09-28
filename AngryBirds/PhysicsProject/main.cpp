@@ -70,6 +70,7 @@ int main()
 		if (scene->scene > 0)
 		{
 			scene->Create(scene->scene);
+
 			scene->Update();
 			scene->Render(window);
 		}

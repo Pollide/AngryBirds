@@ -13,6 +13,5 @@ public:
 
 	void Render(sf::RenderWindow& _window, float _scale);
 
-	int type;
 	bool waiting;
 };

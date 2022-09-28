@@ -11,19 +11,22 @@ void InputManager::InitializeButtons(sf::Font* font)
 	CreateButton("ANGRY PIGS", transform, 0, true);
 	CreateButton("OPTIONS MENU", transform, 1, true);
 	CreateButton("GAME OVER", transform, 2, true);
+	CreateButton("SUCCESS!", transform, 3, true);
 
 	transform.y += add;
 
+	CreateButton("TRY AGAIN", transform, 2);
+
 	Button::Transform newTransform = transform;
 	newTransform.x -= 85;
-	CreateButton("REPLAY", newTransform, 2);
+	CreateButton("REPLAY", newTransform, 3);
 
 	CreateButton("SCENE ONE", transform);
 	CreateButton("MUSIC", transform, 1);
 	transform.y += add / 1.3f;
 
 	newTransform.x += 85 * 2;
-	CreateButton("NEXT", newTransform, 2);
+	CreateButton("NEXT", newTransform, 3);
 
 	CreateButton("SOUND", transform, 1);
 	CreateButton("SCENE TWO", transform);
@@ -108,7 +111,7 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, Scene* scene)
 						scene->menu = 1;
 					}
 
-					if (it.second->ButtonText == "REPLAY")
+					if (it.second->ButtonText == "TRY AGAIN" || it.second->ButtonText == "REPLAY")
 					{
 						scene->End();
 					}
@@ -117,8 +120,6 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, Scene* scene)
 					{
 						scene->End();
 						scene->scene += 1;
-
-
 					}
 
 					if (it.second->ButtonText == "SOUND")
