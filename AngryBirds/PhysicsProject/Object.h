@@ -32,20 +32,22 @@ public:
 			{
 				for (int i = 0; i < mFixtureUserData->size(); ++i)
 				{
-					Object* otherObject = mFixtureUserData->at(i)->object;
-
-
 					if (mFixtureUserData->at(i)->mOwningFixture == contact->GetFixtureA())
 					{
+						Object* otherObject = mFixtureUserData->at(i)->object;
+
+
 						for (int j = 0; j < mFixtureUserData->size(); ++j)
 						{
 							//check if second fixture is an object
 
-							Object* thisObject = mFixtureUserData->at(j)->object;
-
-
 							if (mFixtureUserData->at(j)->mOwningFixture == contact->GetFixtureB())
 							{
+
+								Object* thisObject = mFixtureUserData->at(j)->object;
+
+								thisObject->contacted = true;
+
 								//check if that object is not the ground and is alive (as poof is zero)
 								if (thisObject->PoofIndex == 0 && otherObject->PoofIndex == 0)
 								{
@@ -88,10 +90,18 @@ public:
 			}
 		}
 
-		//can check when the contact ends, but not in use right now
+		//can check when the contact ends
 		void EndContact(b2Contact* contact)
 		{
+			for (int j = 0; j < mFixtureUserData->size(); ++j)
+			{
+				//check if second fixture is an object
 
+				if (mFixtureUserData->at(j)->mOwningFixture == contact->GetFixtureB())
+				{
+					mFixtureUserData->at(j)->object->contacted = false;
+				}
+			}
 		}
 	};
 
@@ -104,7 +114,7 @@ public:
 
 	//listens to the collisions
 	Listener listener;
-
+	bool contacted;
 	int CharacterType;
 	int SpeedToDestroy;
 
