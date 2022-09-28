@@ -12,10 +12,12 @@ void InputManager::InitializeButtons(sf::Font* font)
 	CreateButton("OPTIONS MENU", transform, 1, true);
 	CreateButton("GAME OVER", transform, 2, true);
 	CreateButton("SUCCESS!", transform, 3, true);
+	CreateButton("ALL LEVELS COMPLETE!", transform, 4, true);
 
 	transform.y += add;
 
 	CreateButton("TRY AGAIN", transform, 2);
+	CreateButton("MAIN MENU", transform, 4);
 
 	Button::Transform newTransform = transform;
 	newTransform.x -= 85;
@@ -104,6 +106,12 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, Scene* scene)
 					if (it.second->ButtonText == "SCENE THREE")
 					{
 						scene->scene = 3;
+					}
+
+					if (it.second->ButtonText == "MAIN MENU")
+					{
+						scene->scene = 0;
+						scene->End();
 					}
 
 					if (it.second->ButtonText == "OPTIONS")

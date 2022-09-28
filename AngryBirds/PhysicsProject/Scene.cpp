@@ -15,7 +15,11 @@ void Scene::Initialise()
 	catapult = new Catapult(sf::Vector2f(250, 410));
 }
 
-
+bool Scene::InView(sf::RenderWindow& _window, sf::Sprite sprite)
+{
+	sf::IntRect rect = _window.getViewport(_window.getView());
+	return rect.contains(sf::Vector2i(sprite.getPosition().x, sprite.getPosition().y));
+}
 
 void Scene::Render(sf::RenderWindow& _window)
 {
@@ -61,7 +65,7 @@ void Scene::Render(sf::RenderWindow& _window)
 		{
 
 			//std::cout << objects[i]->CharacterType << " | ";
-			if (objects[i]->CharacterType > 0 && objects[i]->ReturnSpeed(objects[i]->body) < 0.2f)
+			if (objects[i]->CharacterType > 0 && objects[i]->ReturnSpeed(objects[i]->body) < 0.2f || !InView(_window, objects[i]->sprite))
 			{
 				objects[i]->PoofIndex = 1;
 			}
@@ -95,10 +99,9 @@ void Scene::Render(sf::RenderWindow& _window)
 	{
 		if (enemiesLeft == 0)
 		{
-			menu = 3;
+			menu = scene == 3 ? 4 : 3;
 		}
-
-		if (birdsLeft == 0)
+		else if (birdsLeft == 0)
 		{
 			menu = 2;
 		}
@@ -297,6 +300,7 @@ void Scene::End()
 	delete catapult;
 	Initialise();
 }
+
 
 void Scene::AddQueue(int type)
 {
