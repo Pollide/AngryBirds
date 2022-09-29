@@ -27,9 +27,7 @@ public:
 	bool holding;
 	const int MaxVolume = 10; //keep above else it will be zero
 	int MusicVolume = MaxVolume;
-	int SoundVolume = MaxVolume;
 	map<string, Button*> buttons;
 	sf::Music music;
-	sf::Music sound;
 };
 
