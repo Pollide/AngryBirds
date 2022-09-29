@@ -7,7 +7,7 @@
 class Bird : public Object
 {
 public:
-	Bird(int _type, b2World* _world, std::vector<std::unique_ptr<FixtureUserData>>* mFixtureUserData, bool _waiting = false);
+	Bird(int _type, bool _waiting = false);
 
 	sf::String ReturnTextureName(int _type);
 

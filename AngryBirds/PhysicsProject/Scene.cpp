@@ -12,7 +12,7 @@ void Scene::Initialise()
 	b2Vec2 gravity(0.0f, 10.0f);
 	world = new b2World(gravity);
 	Background = sf::Color(8, 136, 97);
-	catapult = new Catapult(sf::Vector2f(250, 410));
+	catapult = new Catapult(sf::Vector2f(250, 410), world);
 }
 
 bool Scene::InView(sf::RenderWindow& _window, sf::Sprite sprite)
@@ -253,7 +253,7 @@ void Scene::MouseButtonPressed(sf::RenderWindow& _window)
 				for (int i = 0; i < 3; i++)
 				{
 
-					Bird* bird = NewBird(new Bird(launchedBird->CharacterType * 100, world, &mFixtureUserData), _window);
+					Bird* bird = NewBird(new Bird(launchedBird->CharacterType * 100), _window);
 					//bird->SetScale(bird->sprite.getScale().x * 0.5f);
 
 					birds.push_back(bird);
@@ -339,7 +339,7 @@ void Scene::End()
 
 void Scene::AddQueue(int type)
 {
-	birds.push_back(new Bird(type, world, &mFixtureUserData, true));
+	birds.push_back(new Bird(type, true));
 	birds[birds.size() - 1]->sprite.setPosition(sf::Vector2f(200 - birds.size() * 35, 450));
 }
 
