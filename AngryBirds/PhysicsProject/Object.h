@@ -49,7 +49,7 @@ public:
 								thisObject->contacted = true;
 
 								//check if that object is not the ground and is alive (as poof is zero)
-								if (thisObject->PoofIndex == 0 && otherObject->PoofIndex == 0)
+								if (thisObject->frame && thisObject->PoofIndex == 0 && otherObject->frame && otherObject->PoofIndex == 0)
 								{
 									if (otherObject->bodyDef.type == b2BodyType::b2_dynamicBody)
 									{
@@ -127,7 +127,7 @@ public:
 	int hitpoints = 1;
 	int PoofIndex; //gets the animation index
 	int PoofTimer; //gets the time it takes to change animation frame
-
+	bool frame; //waits one frame before detecting collisions
 				   //private:
 
 	// Box 2D Stuff

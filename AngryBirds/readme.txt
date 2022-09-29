@@ -1,0 +1,1 @@
+Press the 'options' in game to read how to play
