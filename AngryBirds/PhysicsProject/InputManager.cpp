@@ -40,7 +40,6 @@ void InputManager::InitializeButtons(sf::Font* font)
 	newTransform.x += 85 * 2;
 	CreateButton("NEXT", newTransform, 3);
 
-	CreateButton("SOUND", transform, 1);
 	CreateButton("SCENE TWO", transform);
 	transform.y += add / 1.3f;
 
@@ -139,13 +138,6 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, Scene* scene)
 						scene->scene += 1;
 					}
 
-					if (it.second->ButtonText == "SOUND")
-					{
-						SoundVolume++;
-
-						if (SoundVolume > MaxVolume)
-							SoundVolume = 0;
-					}
 
 					if (it.second->ButtonText == "MUSIC")
 					{
@@ -179,8 +171,6 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, Scene* scene)
 			if (it.second->ButtonText == "MUSIC")
 				it.second->set_text(CreateString("MUSIC: ", MusicVolume));
 
-			if (it.second->ButtonText == "SOUND")
-				it.second->set_text(CreateString("SOUND: ", SoundVolume));
 		}
 		else
 		{

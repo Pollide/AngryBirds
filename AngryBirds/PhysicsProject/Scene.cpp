@@ -193,7 +193,7 @@ void Scene::Create(int sceneRequested)
 			AddQueue(1);
 			AddQueue(2);
 			AddQueue(1);
-			AddQueue(2);
+			AddQueue(3);
 
 			Background = sf::Color(235, 136, 97);
 		}
