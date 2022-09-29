@@ -1,3 +1,13 @@
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+// (c) 2022 Media Design School
+//
+// File Name : Bird.h
+// Description: Used to apply parameters to objects of type bird. Which type of bird, the corresponding sprite and its status. Also has render function.
+// Authors: Pol & Allister
+
 #pragma once
 
 #include "SFML/Graphics.hpp"

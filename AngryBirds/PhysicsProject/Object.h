@@ -1,3 +1,13 @@
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+// (c) 2022 Media Design School
+//
+// File Name :  
+// Description:  
+// Authors:
+
 #pragma once
 
 #include "SFML/Graphics.hpp"
@@ -71,10 +81,6 @@ public:
 												if (otherObject->CharacterType > 0)  //if both birds collide with eachother, they both die
 													thisObject->PoofIndex = 1;
 											}
-										}
-										else	if (thisObject->CharacterType == 0 && otherObject->CharacterType != 0 && ReturnSpeed(thisObject->body) > 1)
-										{
-											otherObject->PoofIndex = 1;
 										}
 									}
 									else

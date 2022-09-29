@@ -1,4 +1,13 @@
-#pragma once
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+// (c) 2022 Media Design School
+//
+// File Name :  
+// Description:  
+// Authors:
+
 #pragma once
 #include "SFML/Graphics.hpp"
 #include <iostream>
@@ -17,7 +26,7 @@ class Button
 public:
 	struct Transform
 	{
-		float x = 560;
+		float x = 600;
 		float y = 30;
 		float _width = 160;
 		float _height = 50;
