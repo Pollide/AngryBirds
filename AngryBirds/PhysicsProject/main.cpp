@@ -45,21 +45,21 @@ int main()
 
 				switch (event.type)
 				{
-				case sf::Event::MouseButtonPressed:
-				{
-					scene->MouseButtonPressed(window);
-					break;
-				}
-				case sf::Event::MouseButtonReleased:
-				{
-					scene->MouseButtonReleased(window);
-					break;
-				}
-				case sf::Event::MouseMoved:
-				{
-					scene->MouseMoved(window);
-					break;
-				}
+					case sf::Event::MouseButtonPressed:
+					{
+						scene->MouseButtonPressed(window);
+						break;
+					}
+					case sf::Event::MouseButtonReleased:
+					{
+						scene->MouseButtonReleased(window);
+						break;
+					}
+					case sf::Event::MouseMoved:
+					{
+						scene->MouseMoved(window, scene->world);
+						break;
+					}
 				}
 			}
 		}

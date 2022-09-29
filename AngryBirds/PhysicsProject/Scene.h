@@ -21,7 +21,7 @@ public:
 	bool InView(sf::RenderWindow& _window, sf::Sprite sprite);
 	Bird* NewBird(Bird* bird, sf::RenderWindow& _window);
 	void AddQueue(int type);
-	void MouseMoved(sf::RenderWindow& _window);
+	void MouseMoved(sf::RenderWindow& _window, b2World* _world);
 	const double scale = 30.0;
 	int menu = 0;
 	//menu types
@@ -35,9 +35,9 @@ public:
 	std::vector<Bird*> birds;
 	std::vector<Object*> objects;
 	std::vector<std::unique_ptr<Object::FixtureUserData>> mFixtureUserData;
-
-private:
 	b2World* world;
+private:
+	
 	Bird* launchedBird;
 	Catapult* catapult;
 };

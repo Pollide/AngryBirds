@@ -176,7 +176,6 @@ void Scene::Create(int sceneRequested)
 			Joint joint(objects[objects.size() - 3], objects[objects.size() - 2], b2Vec2(-2.0f, 1.0f), world);
 			Joint jointTwo(objects[objects.size() - 3], objects[objects.size() - 1], b2Vec2(2.0f, 1.0f), world);
 
-
 			AddQueue(1);
 			AddQueue(2);
 			AddQueue(1);
@@ -318,8 +317,8 @@ void Scene::GetQueue(sf::RenderWindow& _window)
 Bird* Scene::NewBird(Bird* bird, sf::RenderWindow& _window)
 {
 	bird->listener.mFixtureUserData = &mFixtureUserData;
-	catapult->LoadBird(bird);
-	catapult->MoveBird(_window);
+	catapult->LoadBird(bird, _window, world);
+	catapult->MoveBird(_window, world);
 
 	return bird;
 }
@@ -344,7 +343,7 @@ void Scene::AddQueue(int type)
 	birds[birds.size() - 1]->sprite.setPosition(sf::Vector2f(200 - birds.size() * 35, 450));
 }
 
-void Scene::MouseMoved(sf::RenderWindow& _window)
+void Scene::MouseMoved(sf::RenderWindow& _window, b2World* _world)
 {
-	catapult->MoveBird(_window);
+	catapult->MoveBird(_window, _world);
 }
