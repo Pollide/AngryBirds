@@ -1,3 +1,13 @@
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+// (c) 2022 Media Design School
+//
+// File Name :  
+// Description: Bird constructor using object constructor. Function to apply correct sprite. Rendering function
+// Authors: Pol & Allister
+
 #include "Bird.h"
 
 Bird::Bird(int _type, bool _waiting) : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, ReturnTextureName(_type), NULL, NULL, _type)
@@ -7,8 +17,6 @@ Bird::Bird(int _type, bool _waiting) : Object(sf::Vector2f(450, 100), 0, b2BodyT
 
 sf::String Bird::ReturnTextureName(int _type)
 {
-	//int randSprite = rand() % 3 + 1;
-	//std::cout << randSprite;
 	std::stringstream ss;
 	ss << "Characters/AngryPig" << _type << ".png";
 
