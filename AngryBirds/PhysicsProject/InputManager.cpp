@@ -64,7 +64,6 @@ void InputManager::InitializeButtons(sf::Font* font)
 void InputManager::InitializeMusic()
 {
 	music.openFromFile("Resources/Sounds/AngryPigsMusic.wav");
-	music.setVolume(50.0f);
 	music.play();
 	music.setLoop(true);
 
@@ -146,12 +145,6 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, Scene* scene)
 
 						if (SoundVolume > MaxVolume)
 							SoundVolume = 0;
-
-						//sound.setVolume(sound.getVolume() + 10.0f);
-						//if (sound.getVolume() >= 100.0f)
-						//{
-						//	sound.setVolume(0.0f);
-						//}
 					}
 
 					if (it.second->ButtonText == "MUSIC")
@@ -161,11 +154,10 @@ void InputManager::UpdateButtons(const sf::RenderWindow* window, Scene* scene)
 						if (MusicVolume > MaxVolume)
 							MusicVolume = 0;
 
-						music.setVolume(music.getVolume() + 10.0f);
-						if (music.getVolume() >= 100.0f)
-						{
-							music.setVolume(0.0f);
-						}
+						music.setVolume(MusicVolume * 10);
+
+						cout << MusicVolume;
+						cout << music.getVolume();
 					}
 
 					if (it.second->ButtonText == "BACK")
