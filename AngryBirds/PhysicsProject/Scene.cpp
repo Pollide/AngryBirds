@@ -12,7 +12,7 @@ void Scene::Initialise()
 	b2Vec2 gravity(0.0f, 10.0f);
 	world = new b2World(gravity);
 	Background = sf::Color(8, 136, 97);
-	catapult = new Catapult(sf::Vector2f(250, 410), world);
+	catapult = new Catapult(sf::Vector2f(250, 410));
 }
 
 bool Scene::InView(sf::RenderWindow& _window, sf::Sprite sprite)
@@ -145,6 +145,13 @@ void Scene::Create(int sceneRequested)
 			objects.push_back(new Object(sf::Vector2f(720, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
 			objects.push_back(new Object(sf::Vector2f(850, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
 
+			objects.push_back(new Object(sf::Vector2f(600, 0), scale, b2BodyType::b2_staticBody, "Obstacles/Rope.png", world, &mFixtureUserData, 0, 100));
+			for (int i = 1; i < 10; i++)
+			{
+				objects.push_back(new Object(sf::Vector2f(600, i * 24), scale, b2BodyType::b2_dynamicBody, "Obstacles/Rope.png", world, &mFixtureUserData, 0, 100));
+				Joint joint(objects[objects.size() - 2], objects[objects.size() - 1], b2Vec2(-2.0f, 1.0f), world, 2);
+			}
+
 			AddQueue(1);
 			AddQueue(1);
 			AddQueue(1);
@@ -173,8 +180,8 @@ void Scene::Create(int sceneRequested)
 			objects.push_back(new Object(sf::Vector2f(380, 410), scale, b2BodyType::b2_dynamicBody, "Obstacles/Wheel.png", world, &mFixtureUserData, 0, 10));
 
 			objects.push_back(new Object(sf::Vector2f(600, 410), scale, b2BodyType::b2_dynamicBody, "Obstacles/Wheel.png", world, &mFixtureUserData, 0, 10));
-			Joint joint(objects[objects.size() - 3], objects[objects.size() - 2], b2Vec2(-2.0f, 1.0f), world);
-			Joint jointTwo(objects[objects.size() - 3], objects[objects.size() - 1], b2Vec2(2.0f, 1.0f), world);
+			Joint joint(objects[objects.size() - 3], objects[objects.size() - 2], b2Vec2(-2.0f, 1.0f), world, 1);
+			Joint jointTwo(objects[objects.size() - 3], objects[objects.size() - 1], b2Vec2(2.0f, 1.0f), world, 1);
 
 			AddQueue(1);
 			AddQueue(2);

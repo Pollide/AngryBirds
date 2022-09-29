@@ -9,9 +9,10 @@ float Rad2Deg(float rad)
 	return rad * (oneEighty / pi);
 }
 
-Joint::Joint(Object* board, Object* wheel, b2Vec2 localAnchor, b2World* _world)
+Joint::Joint(Object* board, Object* wheel, b2Vec2 localAnchor, b2World* _world, int jointType)
 {
-
+	if (jointType == 1)
+	{
 		b2DistanceJointDef distJointDef;
 		//distJointDef.Initialize(body, wheelOne->body, b2Vec2(0.0f, 0.0f), b2Vec2(0, 0.0f));
 		distJointDef.bodyA = wheel->body;
@@ -23,6 +24,18 @@ Joint::Joint(Object* board, Object* wheel, b2Vec2 localAnchor, b2World* _world)
 
 		//distJointDef.collideConnected = true;
 		b2DistanceJoint* r_joint = (b2DistanceJoint*)_world->CreateJoint(&distJointDef);
+	}
+	if (jointType == 2)
+	{
+		b2DistanceJointDef ropeJointDef;
+		ropeJointDef.bodyA = wheel->body;
+		ropeJointDef.bodyB = board->body;
+		ropeJointDef.collideConnected = true;
+		ropeJointDef.maxLength = 0.175f;
+		ropeJointDef.localAnchorA.Set(0, -0.33f);
+		ropeJointDef.localAnchorB.Set(0, 0.33f);
+		b2DistanceJoint* ropeJoint = (b2DistanceJoint*)_world->CreateJoint(&ropeJointDef);
+	}
 }
 
 void Joint::Simulate()
