@@ -57,7 +57,7 @@ int main()
 					}
 					case sf::Event::MouseMoved:
 					{
-						scene->MouseMoved(window);
+						scene->MouseMoved(window, scene->world);
 						break;
 					}
 				}

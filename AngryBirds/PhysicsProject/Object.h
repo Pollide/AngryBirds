@@ -129,7 +129,4 @@ public:
 	// SFML Stuff
 	sf::Sprite sprite;
 	sf::Texture texture;
-
-
-
 };
