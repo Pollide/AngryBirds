@@ -7,6 +7,7 @@ MouseJoint::MouseJoint()
 
 void MouseJoint::Bind(b2Body* catapultBody, float x, float y, b2World* _world)
 {
+
 	b2MouseJointDef mouseJointDef;
 	mouseJointDef.bodyA = body;
 

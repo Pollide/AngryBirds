@@ -18,4 +18,5 @@ public:
 	b2FixtureDef fixtureDef;
 	b2MouseJoint* mouseJoint;
 	sf::Vertex line[2];
+
 };
