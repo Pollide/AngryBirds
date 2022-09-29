@@ -1,3 +1,13 @@
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+// (c) 2022 Media Design School
+//
+// File Name :  
+// Description:  
+// Authors:
+
 #include "MouseJoint.h"
 
 MouseJoint::MouseJoint()

@@ -7,15 +7,15 @@ InputManager inputManager;
 int main()
 {
 	// Window parameters
-	sf::RenderWindow window(sf::VideoMode(1260, 540), "Angry Pigs!");
+	sf::RenderWindow window(sf::VideoMode(1260, 540), "Angry Pigs", sf::Style::None | sf::Style::Close | sf::Style::Titlebar);
 	window.setFramerateLimit(60);
 
 	// Game music parameters
-	// sf::Music music;
-	// music.openFromFile("Resources/Sounds/AngryPigsMusic.wav");
-	// music.setVolume(50.0f);
-	// music.play();
-	// music.setLoop(true);
+	sf::Music music;
+	music.openFromFile("Resources/Sounds/AngryPigsMusic.wav");
+	music.setVolume(50.0f);
+	music.play();
+	music.setLoop(true);
 
 	// UI parameters
 	Scene* scene = new Scene();
