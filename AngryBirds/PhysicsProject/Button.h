@@ -17,7 +17,7 @@ class Button
 public:
 	struct Transform
 	{
-		float x = 420;
+		float x = 600;
 		float y = 30;
 		float _width = 160;
 		float _height = 50;
