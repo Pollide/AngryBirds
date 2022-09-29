@@ -49,7 +49,7 @@ void InputManager::InitializeButtons(sf::Font* font)
 	transform.y += add * 0.75f;
 
 	transform.characterSize = 10;
-	CreateButton("How to play:\nHold the mouse and drag around to aim.\nLet go to slingshot a pig, aim for the enemy birds.\nOnce all are hit, you win\n You lose if you run out of pigs.", transform, true, true);
+	CreateButton("                                                                                         How to play:\nHold the mouse and drag around to aim.\nLet go to slingshot a pig, aim for the enemy birds.\nOnce all are hit, you win. You lose if you run out of pigs.\nClick while in mid-air to activate ability.\nBlue pigs become three smaller ones and yellow pigs go faster and are stronger", transform, true, true);
 	transform.characterSize = 22;
 
 	transform.y += add * 0.5f;
