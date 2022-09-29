@@ -1,6 +1,6 @@
 #include "Bird.h"
 
-Bird::Bird(int _type, bool _waiting) : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, ReturnTextureName(_type), NULL, NULL, _type)
+Bird::Bird(int _type, b2World* _world, std::vector<std::unique_ptr<FixtureUserData>>* mFixtureUserData, bool _waiting) : Object(sf::Vector2f(450, 100), 0, b2BodyType::b2_dynamicBody, ReturnTextureName(_type), _world, mFixtureUserData, _type)
 {
 	waiting = _waiting;
 }

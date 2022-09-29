@@ -9,10 +9,9 @@ Object::Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::
 	listener.mFixtureUserData = mFixtureUserData;
 	CharacterType = characterType;
 	SpeedToDestroy = speedToDestroy;
-	if (_world != NULL) //if it isnt NULL, then this is an object, else it would be a bird
-	{
-		CreatePhysics(_position, _scale, _bodyType, _world);
-	}
+
+	CreatePhysics(_position, _scale, _bodyType, _world);
+
 }
 
 
@@ -37,19 +36,18 @@ void Object::CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bod
 
 	bodyDef.position = b2Vec2(_position.x / _scale, _position.y / _scale);
 	bodyDef.type = _bodyType;
-	if (_world != NULL)
-	{
-		auto myUserData = std::make_unique<FixtureUserData>();
-		myUserData->mObjectType = listener.mFixtureUserData->size(); // whatever this fixture is about
-		myUserData->object = this;
 
-		_world->SetContactListener(&listener);
-		body = _world->CreateBody(&bodyDef);
+	auto myUserData = std::make_unique<FixtureUserData>();
+	myUserData->mObjectType = listener.mFixtureUserData->size(); // whatever this fixture is about
+	myUserData->object = this;
 
-		myUserData->mOwningFixture = body->CreateFixture(&fixtureDef);
+	_world->SetContactListener(&listener);
+	body = _world->CreateBody(&bodyDef);
 
-		listener.mFixtureUserData->emplace_back(std::move(myUserData));
-	}
+	myUserData->mOwningFixture = body->CreateFixture(&fixtureDef);
+
+	listener.mFixtureUserData->emplace_back(std::move(myUserData));
+
 }
 
 

@@ -1,4 +1,15 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (AngryBirds.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  MouseJoint.cpp
-C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\MouseJoint.cpp(18,29): warning C4305: '=': truncation from 'double' to 'float'
+  Object.cpp
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(34,39): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(41,61): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(76,64): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(76,39): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
   AngryBirds.vcxproj -> C:\Users\Main\Desktop\University\S4 GD2P02 - Physics Programming\AngryBirds\AngryBirds\x64\Debug\PhysicsProject.exe

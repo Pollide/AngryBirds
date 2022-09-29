@@ -22,12 +22,17 @@ void MouseJoint::Bind(Bird* loadedBird, float x, float y, b2World* _world)
 	//mouseJointDef.frefquencyHz = 60.0;
 	//mouseJointDef.maxForce = powl(loadedBird->GetMass() + 10, 37);
 
-	if (!_world)
+	if (!mouseJointDef.bodyB)
 	{
 		std::cout << "Missing";
 	}
 
 
+	if (&mouseJointDef.bodyB == nullptr)
+	{
+		std::cout << "also missing";
+
+	}
 	if (&mouseJointDef == nullptr)
 	{
 		std::cout << "also missing";
@@ -36,7 +41,7 @@ void MouseJoint::Bind(Bird* loadedBird, float x, float y, b2World* _world)
 
 	//b2Joint* joint = _world->CreateJoint(&mouseJointDef);
 
-	mouseJoint = (b2MouseJoint*)_world->CreateJoint(&mouseJointDef); //new error
+//	mouseJoint = (b2MouseJoint*)_world->CreateJoint(&mouseJointDef); //new error
 
 }
 

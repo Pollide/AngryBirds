@@ -57,7 +57,7 @@ void Catapult::MoveBird(sf::RenderWindow& _window, b2World* _world)
 void Catapult::LaunchBird(float _scale, b2World& _world)
 {
 
-	loadedBird->CreatePhysics(loadedBird->sprite.getPosition(), _scale, b2BodyType::b2_dynamicBody, &_world);
+	//loadedBird->CreatePhysics(loadedBird->sprite.getPosition(), _scale, b2BodyType::b2_dynamicBody, &_world);
 	//std::cout << firingVector.x << "," << firingVector.y << " | ";
 	ImpulseBody(loadedBird->body, 4);
 
