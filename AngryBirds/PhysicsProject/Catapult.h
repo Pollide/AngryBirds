@@ -15,7 +15,8 @@ public:
 
 	void LoadBird(Bird* _bird);
 	void MoveBird(sf::RenderWindow& _window);
-	void LaunchBird(float _scale, b2World& _world, bool ability);
+	void ConvertFiring();
+	void LaunchBird(float _scale, b2World& _world);
 	void ImpulseBody(b2Body* body, float launchStrength);
 	Bird* loadedBird;
 	sf::Vector2f firingVector;

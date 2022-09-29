@@ -42,6 +42,11 @@ void Scene::Render(sf::RenderWindow& _window)
 					objects[i]->LoadTexture(ss.str()); //changes the animation
 					objects[i]->PoofIndex++;
 
+					if (objects[i]->CharacterType == 200)
+					{
+						objects[i]->sprite.setScale(sf::Vector2f(0.5f, 0.5f));
+					}
+
 					for (int j = 0; j < world->GetJointCount(); j++) //removes wheels and other connected parts
 					{
 						//std::cout << "joint";
@@ -57,6 +62,7 @@ void Scene::Render(sf::RenderWindow& _window)
 			else
 			{
 				//objects[i]->bodyDef.position = b2Vec2(0, 9999);
+				objects[i]->sprite.setPosition(sf::Vector2f(99999, 99999));
 
 				continue; //stop the object rendering as it has poofed away
 			}
@@ -65,7 +71,7 @@ void Scene::Render(sf::RenderWindow& _window)
 		{
 
 			//std::cout << objects[i]->CharacterType << " | ";
-			if (objects[i]->CharacterType > 0 && objects[i]->ReturnSpeed(objects[i]->body) < 0.2f && objects[i]->contacted || !InView(_window, objects[i]->sprite))
+			if (objects[i]->CharacterType > 0 && objects[i]->ReturnSpeed(objects[i]->body) < 0.4f && objects[i]->contacted || !InView(_window, objects[i]->sprite))
 			{
 				objects[i]->PoofIndex = 1;
 			}
@@ -76,12 +82,13 @@ void Scene::Render(sf::RenderWindow& _window)
 			enemiesLeft++;
 		}
 
+		objects[i]->frame = true;
 		objects[i]->Render(_window, scale);
 	}
 	for (int i = 0; i < birds.size(); ++i)
 	{
-
-		birds[i]->Render(_window, scale);
+		if (birds[i]->waiting)
+			birds[i]->Render(_window, scale);
 
 		if (birds[i]->PoofIndex == 0)
 		{
@@ -140,7 +147,7 @@ void Scene::Create(int sceneRequested)
 
 			AddQueue(1);
 			AddQueue(1);
-			AddQueue(2);
+			AddQueue(1);
 
 			Background = sf::Color(97, 136, 235);
 		}
@@ -174,8 +181,8 @@ void Scene::Create(int sceneRequested)
 
 			AddQueue(1);
 			AddQueue(2);
-			AddQueue(3);
-			AddQueue(3);
+			AddQueue(1);
+			AddQueue(2);
 
 			Background = sf::Color(235, 136, 97);
 		}
@@ -208,6 +215,21 @@ void Scene::Create(int sceneRequested)
 	}
 }
 
+sf::Vector2f Normalize(const sf::Vector2f& source)
+{
+	//length/magnitude of one
+	float length = sqrt((source.x * source.x) + (source.y * source.y));
+
+	if (length != 0)
+	{
+		return sf::Vector2f(source.x / length, source.y / length);
+	}
+	else
+	{
+		return source;
+	}
+}
+
 void Scene::MouseButtonPressed(sf::RenderWindow& _window)
 {
 	if (menu == -1)
@@ -218,25 +240,34 @@ void Scene::MouseButtonPressed(sf::RenderWindow& _window)
 			{
 				sf::Vector2f position = launchedBird->sprite.getPosition();
 
-				launchedBird->sprite.setScale(.5f, .5f);
+				launchedBird->PoofIndex = 1;
 				//launchedBird->CreatePhysics(position, 15, b2BodyType::b2_dynamicBody, NULL);
 				//launchedBird->sprite.setScale(launchedBird->sprite.getScale().x * 0.5f, launchedBird->sprite.getScale().x * 0.5f);
 			//	launchedBird->shape.SetAsBox(launchedBird->sprite.getOrigin().x * .1f, launchedBird->sprite.getOrigin().y * .1f);
 				//launchedBird->
 				//launchedBird->bodyDef.position = b2Vec2(launchedBird->bodyDef.position.x / launchedBird->sprite.getScale().x, launchedBird->bodyDef.position.y / launchedBird->sprite.getScale().x);
 
-				for (int i = 0; i < 2; i++)
+
+				for (int i = 0; i < 3; i++)
 				{
 
-					Bird* bird = NewBird(new Bird(launchedBird->CharacterType), _window);
+					Bird* bird = NewBird(new Bird(launchedBird->CharacterType * 100), _window);
 					//bird->SetScale(bird->sprite.getScale().x * 0.5f);
-					bird->sprite.setScale(.5f, .5f);
+
 					birds.push_back(bird);
+					objects.push_back(bird);
 
-					position.y -= i * 10;
+					position.y -= i * 50 - 20;
 					bird->sprite.setPosition(position);
+					//catapult->firingVector = Normalize(sf::Vector2f(launchedBird->body->GetLinearVelocity().x, launchedBird->body->GetLinearVelocity().y));
+					//catapult->ConvertFiring();
 
-					catapult->LaunchBird(scale, *world, true);
+
+					catapult->LaunchBird(scale, *world);
+
+					//bird->sprite.setScale(.5f, .5f);
+					bird->body->SetLinearVelocity(launchedBird->body->GetLinearVelocity());
+					bird->body->SetAngularVelocity(launchedBird->body->GetAngularVelocity());
 				}
 				launchedBird = nullptr;
 				return;
@@ -244,7 +275,9 @@ void Scene::MouseButtonPressed(sf::RenderWindow& _window)
 
 			if (launchedBird->CharacterType == 3)
 			{
-				catapult->ImpulseBody(launchedBird->body, 8);
+				//launchedBird->fixtureDef.density *= 60;
+				launchedBird->body->SetLinearVelocity(b2Vec2(launchedBird->body->GetLinearVelocity().x * 8, launchedBird->body->GetLinearVelocity().y * 8));
+				launchedBird->body->SetAngularVelocity(launchedBird->body->GetAngularVelocity() * 8);
 				launchedBird = nullptr;
 				return;
 			}
@@ -259,9 +292,10 @@ void Scene::MouseButtonReleased(sf::RenderWindow& _window)
 {
 	if (catapult->loadedBird != nullptr)
 	{
+		catapult->loadedBird->waiting = false;
 		launchedBird = catapult->loadedBird;
 		objects.push_back(launchedBird);
-		catapult->LaunchBird(scale, *world, false);
+		catapult->LaunchBird(scale, *world);
 	}
 }
 
@@ -272,7 +306,6 @@ void Scene::GetQueue(sf::RenderWindow& _window)
 	{
 		if (birds[i]->waiting)
 		{
-			birds[i]->waiting = false;
 			NewBird(birds[i], _window);
 			break;
 		}

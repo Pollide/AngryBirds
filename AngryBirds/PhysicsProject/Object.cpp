@@ -18,7 +18,6 @@ Object::Object(sf::Vector2f _position, float _scale, b2BodyType _bodyType, std::
 
 void Object::CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bodyType, b2World* _world)
 {
-
 	shape.SetAsBox(sprite.getOrigin().x / _scale, sprite.getOrigin().y / _scale);
 
 	fixtureDef.shape = &shape;
@@ -46,6 +45,7 @@ void Object::CreatePhysics(sf::Vector2f _position, float _scale, b2BodyType _bod
 
 		_world->SetContactListener(&listener);
 		body = _world->CreateBody(&bodyDef);
+
 		myUserData->mOwningFixture = body->CreateFixture(&fixtureDef);
 
 		listener.mFixtureUserData->emplace_back(std::move(myUserData));
