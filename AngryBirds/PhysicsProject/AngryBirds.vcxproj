@@ -150,6 +150,7 @@
     <ClCompile Include="Catapult.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Joint.cpp" />
+    <ClCompile Include="MouseJoint.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Catapult.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Joint.h" />
+    <ClInclude Include="MouseJoint.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Object.h" />
   </ItemGroup>
