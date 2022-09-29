@@ -4,7 +4,7 @@
 class MouseJoint
 {
 public:
-	MouseJoint(b2World* _world);
+	MouseJoint();
 	void Bind(Bird* loadedBird, float x, float y, b2World* _world);
 	void CreateGroundBody(b2World* _world);
 	void Update(float x, float y);

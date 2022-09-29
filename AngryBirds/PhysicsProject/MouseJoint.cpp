@@ -1,32 +1,54 @@
 #include "MouseJoint.h"
 
-MouseJoint::MouseJoint(b2World* _world)
+MouseJoint::MouseJoint()
 {
-	
+
 }
 
 void MouseJoint::Bind(Bird* loadedBird, float x, float y, b2World* _world)
 {
-	b2MouseJointDef* mouseJointDef = new b2MouseJointDef();
-	mouseJointDef->bodyA = body;
-	mouseJointDef->bodyB = loadedBird->body;
+	b2MouseJointDef mouseJointDef;
+	mouseJointDef.bodyA = body;
 
-	mouseJointDef->target.Set(x, y);
-	mouseJointDef->maxForce = 5000.0;
-	mouseJointDef->stiffness = 5;
-	mouseJointDef->damping = 0.9;
+	mouseJointDef.bodyB = loadedBird->body;
 
-	mouseJoint = (b2MouseJoint*)_world->CreateJoint(mouseJointDef);
+	mouseJointDef.target = b2Vec2(x, y);
+	mouseJointDef.maxForce = 5000.0;
+	mouseJointDef.stiffness = 5;
+	mouseJointDef.damping = 0.9;
+
+	//mouseJointDef.collideConnected = true;
+	//mouseJointDef.damping = 0.0f;
+	//mouseJointDef.frefquencyHz = 60.0;
+	//mouseJointDef.maxForce = powl(loadedBird->GetMass() + 10, 37);
+
+	if (!_world)
+	{
+		std::cout << "Missing";
+	}
+
+
+	if (&mouseJointDef == nullptr)
+	{
+		std::cout << "also missing";
+
+	}
+
+	//b2Joint* joint = _world->CreateJoint(&mouseJointDef);
+
+	mouseJoint = (b2MouseJoint*)_world->CreateJoint(&mouseJointDef); //new error
+
 }
 
 void MouseJoint::CreateGroundBody(b2World* _world)
 {
+
 	body = _world->CreateBody(&bodyDef);
-	//fixtureDef.shape = &shape;
-	//shape.SetAsBox(1.0f, 1.0);
-	
-	//bodyDef.type = b2BodyType::b2_staticBody;
-	
+	fixtureDef.shape = &shape;
+	shape.SetAsBox(1.0f, 1.0);
+
+	bodyDef.type = b2BodyType::b2_staticBody;
+
 }
 
 void MouseJoint::Update(float x, float y)
