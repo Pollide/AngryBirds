@@ -82,10 +82,6 @@ public:
 													thisObject->PoofIndex = 1;
 											}
 										}
-										else	if (thisObject->CharacterType == 0 && otherObject->CharacterType != 0 && ReturnSpeed(thisObject->body) > 1)
-										{
-											otherObject->PoofIndex = 1;
-										}
 									}
 									else
 									{
