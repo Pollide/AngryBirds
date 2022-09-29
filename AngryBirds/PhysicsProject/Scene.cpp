@@ -12,7 +12,7 @@ void Scene::Initialise()
 	b2Vec2 gravity(0.0f, 10.0f);
 	world = new b2World(gravity);
 	Background = sf::Color(8, 136, 97);
-	catapult = new Catapult(sf::Vector2f(250, 410));
+	catapult = new Catapult(sf::Vector2f(250, 410), world);
 }
 
 bool Scene::InView(sf::RenderWindow& _window, sf::Sprite sprite)

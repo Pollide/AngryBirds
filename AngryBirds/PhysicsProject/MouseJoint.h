@@ -1,11 +1,12 @@
 #pragma once
-#include "Bird.h"
+#include "SFML/Graphics.hpp"
+#include "box2d/box2d.h"
 
 class MouseJoint
 {
 public:
-	MouseJoint(b2World* _world);
-	void Bind(Bird* loadedBird, float x, float y, b2World* _world);
+	MouseJoint();
+	void Bind(b2Body* catapultBody, float x, float y, b2World* _world);
 	void CreateGroundBody(b2World* _world);
 	void Update(float x, float y);
 	void Render(sf::RenderWindow& _window);
