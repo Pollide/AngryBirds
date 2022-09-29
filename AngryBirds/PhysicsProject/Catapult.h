@@ -1,5 +1,7 @@
 #pragma once
 
+#include "SFML/Graphics.hpp"
+#include "box2d/box2d.h"
 #include "MouseJoint.h"
 
 class Bird;
@@ -8,7 +10,7 @@ class b2World;
 class Catapult
 {
 public:
-	Catapult(sf::Vector2f _position, b2World* _world);
+	Catapult(sf::Vector2f _position);
 
 	void Render(sf::RenderWindow& _window);
 
@@ -19,20 +21,15 @@ public:
 	void Update(float x, float y);
 	Bird* loadedBird;
 	sf::Vector2f firingVector;
-	b2Body* bodyOne;
-	b2Body* bodyTwo;
 private:
 
 	// Firing variables
 	sf::Vector2f firingOrigin;
 
-	b2BodyDef bodyDefOne;
-	b2BodyDef bodyDefTwo;
 	// SFML stuff
 	sf::Sprite sprite;
 	sf::Texture texture;
 
-	MouseJoint mouseJointOne;
-	MouseJoint mouseJointTwo;
+	MouseJoint* mouseJointObject;
 };
 
