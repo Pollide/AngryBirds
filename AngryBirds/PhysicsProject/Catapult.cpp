@@ -20,15 +20,15 @@ Catapult::Catapult(sf::Vector2f _position)
 void Catapult::Render(sf::RenderWindow& _window)
 {
 	_window.draw(sprite);
-	mouseJointObject->Render(_window);
+	mouseJointObject.Render(_window);
 }
 
 void Catapult::LoadBird(Bird* _bird, sf::RenderWindow& _window, b2World* _world)
 {
 	loadedBird = _bird;
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(_window);
-	mouseJointObject->CreateGroundBody(_world);
-	mouseJointObject->Bind(loadedBird, mousePosition.x, mousePosition.y, _world);
+	mouseJointObject.CreateGroundBody(_world);
+	mouseJointObject.Bind(loadedBird, mousePosition.x, mousePosition.y, _world);
 }
 
 void Catapult::MoveBird(sf::RenderWindow& _window, b2World* _world)
@@ -40,7 +40,7 @@ void Catapult::MoveBird(sf::RenderWindow& _window, b2World* _world)
 		firingVector.x = mousePosition.x - firingOrigin.x;
 		firingVector.y = mousePosition.y - firingOrigin.y;
 
-		mouseJointObject->Update(mousePosition.x, mousePosition.y);
+		mouseJointObject.Update(mousePosition.x, mousePosition.y);
 
 		float length = sqrt((firingVector.x * firingVector.x) + (firingVector.y * firingVector.y)); // Magnitude
 
@@ -63,7 +63,7 @@ void Catapult::LaunchBird(float _scale, b2World& _world)
 
 	loadedBird = nullptr;
 
-	mouseJointObject->Destroy(&_world);
+	mouseJointObject.Destroy(&_world);
 }
 
 void Catapult::ImpulseBody(b2Body* body, float launchStrength)

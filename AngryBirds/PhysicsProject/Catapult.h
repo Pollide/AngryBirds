@@ -30,6 +30,6 @@ private:
 	sf::Sprite sprite;
 	sf::Texture texture;
 
-	MouseJoint* mouseJointObject;
+	MouseJoint mouseJointObject;
 };
 
