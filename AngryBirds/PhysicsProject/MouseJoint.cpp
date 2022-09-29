@@ -7,21 +7,21 @@ MouseJoint::MouseJoint(b2World* _world)
 
 void MouseJoint::Bind(Bird* loadedBird, float x, float y, b2World* _world)
 {
-	b2MouseJointDef* mouseJointDef = new b2MouseJointDef();
-	mouseJointDef->bodyA = body;
-	mouseJointDef->bodyB = loadedBird->body;
-
-	mouseJointDef->target.Set(x, y);
-	mouseJointDef->maxForce = 5000.0;
-	mouseJointDef->stiffness = 5;
-	mouseJointDef->damping = 0.9;
-
-	mouseJoint = (b2MouseJoint*)_world->CreateJoint(mouseJointDef);
+	//b2MouseJointDef* mouseJointDef = new b2MouseJointDef();
+	//mouseJointDef->bodyA = body;
+	//mouseJointDef->bodyB = loadedBird->body;
+	//
+	//mouseJointDef->target.Set(x, y);
+	//mouseJointDef->maxForce = 5000.0;
+	//mouseJointDef->stiffness = 5;
+	//mouseJointDef->damping = 0.9;
+	//
+	//mouseJoint = (b2MouseJoint*)_world->CreateJoint(mouseJointDef);
 }
 
 void MouseJoint::CreateGroundBody(b2World* _world)
 {
-	body = _world->CreateBody(&bodyDef);
+	//body = _world->CreateBody(&bodyDef);
 	//fixtureDef.shape = &shape;
 	//shape.SetAsBox(1.0f, 1.0);
 	
@@ -31,8 +31,8 @@ void MouseJoint::CreateGroundBody(b2World* _world)
 
 void MouseJoint::Update(float x, float y)
 {
-	b2Vec2 mouseWorld = b2Vec2(x, y);
-	mouseJoint->SetTarget(mouseWorld);
+	//b2Vec2 mouseWorld = b2Vec2(x, y);
+	//mouseJoint->SetTarget(mouseWorld);
 }
 
 void MouseJoint::Render(sf::RenderWindow& _window)
@@ -57,9 +57,9 @@ void MouseJoint::Render(sf::RenderWindow& _window)
 
 void MouseJoint::Destroy(b2World* _world)
 {
-	if (mouseJoint != NULL)
-	{
-		_world->DestroyJoint(mouseJoint);
-		mouseJoint = NULL;
-	}
+	//if (mouseJoint != NULL)
+	//{
+	//	_world->DestroyJoint(mouseJoint);
+	//	mouseJoint = NULL;
+	//}
 }
