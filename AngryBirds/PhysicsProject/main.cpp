@@ -7,7 +7,7 @@ InputManager inputManager;
 int main()
 {
 	// Window parameters
-	sf::RenderWindow window(sf::VideoMode(960, 540), "Angry Pigs!");
+	sf::RenderWindow window(sf::VideoMode(1260, 540), "Angry Pigs!");
 	window.setFramerateLimit(60);
 
 	// Game music parameters
@@ -45,21 +45,21 @@ int main()
 
 				switch (event.type)
 				{
-					case sf::Event::MouseButtonPressed:
-					{
-						scene->MouseButtonPressed(window);
-						break;
-					}
-					case sf::Event::MouseButtonReleased:
-					{
-						scene->MouseButtonReleased(window);
-						break;
-					}
-					case sf::Event::MouseMoved:
-					{
-						scene->MouseMoved(window);
-						break;
-					}
+				case sf::Event::MouseButtonPressed:
+				{
+					scene->MouseButtonPressed(window);
+					break;
+				}
+				case sf::Event::MouseButtonReleased:
+				{
+					scene->MouseButtonReleased(window);
+					break;
+				}
+				case sf::Event::MouseMoved:
+				{
+					scene->MouseMoved(window);
+					break;
+				}
 				}
 			}
 		}

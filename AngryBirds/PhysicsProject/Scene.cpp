@@ -126,24 +126,24 @@ void Scene::Create(int sceneRequested)
 	{
 		menu = -1;
 
-		objects.push_back(new Object(sf::Vector2f(480, 500), scale, b2BodyType::b2_staticBody, "Ground.png", world, &mFixtureUserData, 0));
+		objects.push_back(new Object(sf::Vector2f(630, 500), scale, b2BodyType::b2_staticBody, "Ground.png", world, &mFixtureUserData, 0));
 
 		if (sceneRequested == 1)
 		{
-			objects.push_back(new Object(sf::Vector2f(585, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Glass.png", world, &mFixtureUserData, 0, 1));
-			objects.push_back(new Object(sf::Vector2f(775, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Glass.png", world, &mFixtureUserData, 0, 1));
-			objects.push_back(new Object(sf::Vector2f(680, 400), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongPlank.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(685, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(875, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(780, 400), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongBox.png", world, &mFixtureUserData, 0, 10));
 
-			objects.push_back(new Object(sf::Vector2f(670, 370), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
+			objects.push_back(new Object(sf::Vector2f(770, 370), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
 
-			objects.push_back(new Object(sf::Vector2f(585, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
-			objects.push_back(new Object(sf::Vector2f(775, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 20));
-			objects.push_back(new Object(sf::Vector2f(585, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
-			objects.push_back(new Object(sf::Vector2f(775, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
-			objects.push_back(new Object(sf::Vector2f(680, 250), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongPlank.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(685, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(875, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(685, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(875, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(780, 250), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongBox.png", world, &mFixtureUserData, 0, 10));
 
-			objects.push_back(new Object(sf::Vector2f(620, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
-			objects.push_back(new Object(sf::Vector2f(750, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
+			objects.push_back(new Object(sf::Vector2f(720, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
+			objects.push_back(new Object(sf::Vector2f(850, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
 
 			AddQueue(1);
 			AddQueue(1);
@@ -154,27 +154,25 @@ void Scene::Create(int sceneRequested)
 
 		if (sceneRequested == 2)
 		{
-			objects.push_back(new Object(sf::Vector2f(585, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Glass.png", world, &mFixtureUserData, 0, 1));
-			objects.push_back(new Object(sf::Vector2f(775, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Glass.png", world, &mFixtureUserData, 0, 1));
-			objects.push_back(new Object(sf::Vector2f(680, 400), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongPlank.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(685, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Glass.png", world, &mFixtureUserData, 0, 1));
+			objects.push_back(new Object(sf::Vector2f(875, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Glass.png", world, &mFixtureUserData, 0, 1));
+			objects.push_back(new Object(sf::Vector2f(780, 400), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongStone.png", world, &mFixtureUserData, 0, 50));
 
-			objects.push_back(new Object(sf::Vector2f(670, 370), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
+			objects.push_back(new Object(sf::Vector2f(770, 370), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
 
-			objects.push_back(new Object(sf::Vector2f(585, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
-			objects.push_back(new Object(sf::Vector2f(775, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 20));
-			objects.push_back(new Object(sf::Vector2f(585, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
-			objects.push_back(new Object(sf::Vector2f(775, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
-			objects.push_back(new Object(sf::Vector2f(680, 250), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongPlank.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(685, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 50));
+			objects.push_back(new Object(sf::Vector2f(875, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 50));
+			objects.push_back(new Object(sf::Vector2f(685, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(875, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(780, 250), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongStone.png", world, &mFixtureUserData, 0, 50));
 
-			objects.push_back(new Object(sf::Vector2f(620, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
-			objects.push_back(new Object(sf::Vector2f(750, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
-
-			objects.push_back(new Object(sf::Vector2f(460, 370), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
+			objects.push_back(new Object(sf::Vector2f(720, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
+			objects.push_back(new Object(sf::Vector2f(850, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
 
 			objects.push_back(new Object(sf::Vector2f(450, 400), scale, b2BodyType::b2_dynamicBody, "Obstacles/Wagon.png", world, &mFixtureUserData, 0, 10));
 			objects.push_back(new Object(sf::Vector2f(380, 410), scale, b2BodyType::b2_dynamicBody, "Obstacles/Wheel.png", world, &mFixtureUserData, 0, 10));
-			objects.push_back(new Object(sf::Vector2f(600, 410), scale, b2BodyType::b2_dynamicBody, "Obstacles/Wheel.png", world, &mFixtureUserData, 0, 10));
 
+			objects.push_back(new Object(sf::Vector2f(600, 410), scale, b2BodyType::b2_dynamicBody, "Obstacles/Wheel.png", world, &mFixtureUserData, 0, 10));
 			Joint joint(objects[objects.size() - 3], objects[objects.size() - 2], b2Vec2(-2.0f, 1.0f), world);
 			Joint jointTwo(objects[objects.size() - 3], objects[objects.size() - 1], b2Vec2(2.0f, 1.0f), world);
 
@@ -189,25 +187,30 @@ void Scene::Create(int sceneRequested)
 
 		if (sceneRequested == 3)
 		{
+			objects.push_back(new Object(sf::Vector2f(450, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 50));
+			objects.push_back(new Object(sf::Vector2f(450, 380), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 50));
+			objects.push_back(new Object(sf::Vector2f(450, 310), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 50));
+			objects.push_back(new Object(sf::Vector2f(450, 310 - 60), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 50));
+
 			objects.push_back(new Object(sf::Vector2f(585, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Glass.png", world, &mFixtureUserData, 0, 1));
 			objects.push_back(new Object(sf::Vector2f(775, 460), scale, b2BodyType::b2_dynamicBody, "Obstacles/Glass.png", world, &mFixtureUserData, 0, 1));
-			objects.push_back(new Object(sf::Vector2f(680, 400), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongPlank.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(680, 400), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongStone.png", world, &mFixtureUserData, 0, 50));
 
 			objects.push_back(new Object(sf::Vector2f(670, 370), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
 
-			objects.push_back(new Object(sf::Vector2f(585, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
-			objects.push_back(new Object(sf::Vector2f(775, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 20));
-			objects.push_back(new Object(sf::Vector2f(585, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
-			objects.push_back(new Object(sf::Vector2f(775, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Box.png", world, &mFixtureUserData, 0, 10));
-			objects.push_back(new Object(sf::Vector2f(680, 250), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongPlank.png", world, &mFixtureUserData, 0, 10));
+			objects.push_back(new Object(sf::Vector2f(585, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 50));
+			objects.push_back(new Object(sf::Vector2f(775, 360), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 50));
+			objects.push_back(new Object(sf::Vector2f(585, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 50));
+			objects.push_back(new Object(sf::Vector2f(775, 290), scale, b2BodyType::b2_dynamicBody, "Obstacles/Stone.png", world, &mFixtureUserData, 0, 50));
+			objects.push_back(new Object(sf::Vector2f(680, 250), scale, b2BodyType::b2_dynamicBody, "Obstacles/LongStone.png", world, &mFixtureUserData, 0, 50));
 
 			objects.push_back(new Object(sf::Vector2f(620, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
 			objects.push_back(new Object(sf::Vector2f(750, 200), scale, b2BodyType::b2_dynamicBody, "Characters/AngryBird.png", world, &mFixtureUserData, -1));
 
 			AddQueue(3);
+			AddQueue(3);
 			AddQueue(2);
-			AddQueue(2);
-			AddQueue(1);
+			AddQueue(3);
 			AddQueue(3);
 
 			Background = sf::Color(97, 0, 136);
