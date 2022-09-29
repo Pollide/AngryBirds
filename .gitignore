@@ -369,3 +369,4 @@ FodyWeavers.xsd
 *.log
 AngryBirds/.vs/AngryBirds/v16/.suo
 *.exe
+*.db
