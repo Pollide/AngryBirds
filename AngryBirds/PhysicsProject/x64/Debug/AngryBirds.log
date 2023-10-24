@@ -1,18 +1,6 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (AngryBirds.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Bird.cpp
   Button.cpp
 C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\PhysicsProject\Button.cpp(28,54): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-  Catapult.cpp
-C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\PhysicsProject\Catapult.cpp(20,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\PhysicsProject\Catapult.cpp(21,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
   InputManager.cpp
 C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\PhysicsProject\InputManager.cpp(96,101): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
@@ -129,21 +117,8 @@ C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\PhysicsProject\Scene.cpp(3
           [
               T=float
           ]
-  main.cpp
-  Object.cpp
-C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(45,39): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(53,62): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(88,64): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\PhysicsProject\Object.cpp(88,39): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
   Generating Code...
+  LINK : C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\PhysicsProject.exe not found or not built by the last incremental link; performing full link
 box2d-d.lib(b2_broad_phase.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_broad_phase.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
 box2d-d.lib(b2_chain_shape.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_chain_shape.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
 box2d-d.lib(b2_collide_circle.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_collide_circle.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
@@ -175,16 +150,16 @@ box2d-d.lib(b2_fixture.obj) : warning LNK4099: PDB 'box2d.pdb' was not found wit
 box2d-d.lib(b2_friction_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_friction_joint.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
 box2d-d.lib(b2_gear_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_gear_joint.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
 box2d-d.lib(b2_island.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_island.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
-box2d-d.lib(b2_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_joint.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
+box2d-d.lib(b2_joint.obj) : warning LNK4099: PDB '' was not found with 'box2d-d.lib(b2_joint.obj)' or at ''; linking object as if no debug info
 box2d-d.lib(b2_motor_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_motor_joint.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
-box2d-d.lib(b2_mouse_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_mouse_joint.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
+box2d-d.lib(b2_mouse_joint.obj) : warning LNK4099: PDB '' was not found with 'box2d-d.lib(b2_mouse_joint.obj)' or at ''; linking object as if no debug info
 box2d-d.lib(b2_polygon_circle_contact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_polygon_circle_contact.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
 box2d-d.lib(b2_polygon_contact.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_polygon_contact.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
 box2d-d.lib(b2_prismatic_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_prismatic_joint.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
-box2d-d.lib(b2_pulley_joint.obj) : warning LNK4099: PDB '' was not found with 'box2d-d.lib(b2_pulley_joint.obj)' or at ''; linking object as if no debug info
+box2d-d.lib(b2_pulley_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_pulley_joint.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
 box2d-d.lib(b2_revolute_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_revolute_joint.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
 box2d-d.lib(b2_weld_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_weld_joint.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
-box2d-d.lib(b2_wheel_joint.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_wheel_joint.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
+box2d-d.lib(b2_wheel_joint.obj) : warning LNK4099: PDB '' was not found with 'box2d-d.lib(b2_wheel_joint.obj)' or at ''; linking object as if no debug info
 box2d-d.lib(b2_world.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_world.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
 box2d-d.lib(b2_world_callbacks.obj) : warning LNK4099: PDB 'box2d.pdb' was not found with 'box2d-d.lib(b2_world_callbacks.obj)' or at 'C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\box2d.pdb'; linking object as if no debug info
   AngryBirds.vcxproj -> C:\Users\polo3\Documents\GitHub\AngryBirds\AngryBirds\x64\Debug\PhysicsProject.exe
